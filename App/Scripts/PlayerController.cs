@@ -25,6 +25,7 @@
         private World world;
         private Vector3 teleportLocation;
         private DynamicActorComponent actor;
+        private bool freeCameraMode = true;
 
         public override void Awake()
         {
@@ -40,6 +41,8 @@
             var result = PhysicsSystem.CastRay(origin, -Vector3.UnitY, float.MaxValue, world);
             actor = GameObject.GetComponent<DynamicActorComponent>()!;
         }
+
+        public bool FreeCameraMode { get => freeCameraMode; set => freeCameraMode = value; }
 
         private void Keyboard_OnKeyUp(object? sender, VoxelEngine.Core.Input.Events.KeyboardEventArgs e)
         {
@@ -77,20 +80,31 @@
                 }
                 ImGui.Text(player.SelectedBlock.Name);
                 ImGui.InputFloat("Speed", ref Speed);
+                ImGui.Checkbox("Free Camera", ref freeCameraMode);
             }
             ImGui.End();
 
             CameraTransform transform = camera.Transform;
-            //transform.Position = GameObject.Transform.Position + new Vector3(0, 1f, 0);
+            if (!freeCameraMode)
+            {
+                transform.Position = GameObject.Transform.Position + new Vector3(0, 1f, 0);
+            }
             if (!Application.MainWindow.LockCursor)
             {
                 return;
             }
 
-            HandleFreeCamera();
-            GameObject.Transform.Position = transform.Position - new Vector3(0, 1f, 0);
-
-            //HandleMovement();
+            if (freeCameraMode)
+            {
+                HandleFreeCamera();
+                var position = transform.Position - new Vector3(0, 1f, 0);
+                GameObject.Transform.Position = position;
+                actor.SetPosition(position);
+            }
+            else
+            {
+                HandleMovement();
+            }
 
             var result = PhysicsSystem.CastRay(transform.Position, transform.Forward, 20, player.World);
 

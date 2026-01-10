@@ -9,6 +9,7 @@
     using VoxelEngine.Core;
     using VoxelEngine.Scenes;
     using VoxelEngine.Voxel;
+    using static Hexa.NET.Utilities.IO.FileUtils;
 
     public interface IPhysicsComponent : IComponent
     {
@@ -63,7 +64,7 @@
 
     public unsafe struct DynamicActor
     {
-        internal Pose Pose;
+        internal Pose pose;
         internal Pose lastPose;
 
         internal Vector3 LinearVelocity;
@@ -74,21 +75,20 @@
 
         public void SetPosition(Vector3 position)
         {
-            if (Pose.Position == position) return;
+            if (pose.Position == position) return;
             Grounded = false;
-            Pose.Position = position;
-            lastPose = Pose;
+            pose.Position = position;
         }
 
         public void Move(Vector3 position)
         {
-            if (Pose.Position == position) return;
+            if (pose.Position == position) return;
             Grounded = false;
-            lastPose = Pose;
-            Pose.Position = position;
+            lastPose = pose;
+            pose.Position = position;
         }
 
-        public Vector3 GetPosition() => Pose.Position;
+        public Vector3 GetPosition() => pose.Position;
 
         public void AddShape<T>(T shape) where T : unmanaged, IShape
         {
@@ -167,9 +167,9 @@
             for (int i = 0; i < actors.Count; i++)
             {
                 DynamicActor* actor = actors[i];
-                Pose* pose = &actor->Pose;
+                Pose* pose = &actor->pose;
 
-                actor->LinearVelocity.Y += -0.81f * deltaTime;
+                actor->LinearVelocity.Y += -9.81f * deltaTime;
 
                 Vector3 desiredMovement = actor->LinearVelocity * deltaTime;
                 Vector3 newPosition = SweepMove(actor, desiredMovement);
@@ -186,15 +186,11 @@
 
         public unsafe Vector3 SweepMove(DynamicActor* actor, Vector3 movement)
         {
-            Pose* actorPose = &actor->Pose;
-            Pose* actorPoseLast = &actor->lastPose;
+            if (actor->shapes.Size == 0)
+                return actor->pose.Position;
 
-            Vector3 delta = actorPose->Position - actorPoseLast->Position;
-
-            Vector3 startPos = actorPoseLast->Position;
-            Vector3 endPos = startPos + movement + delta;
-
-            Vector3 finalPosition = startPos;
+            Vector3 position = actor->pose.Position;
+            actor->Grounded = false;
 
             for (int i = 0; i < actor->shapes.Size; i++)
             {
@@ -204,11 +200,10 @@
                 {
                     case ShapeType.Box:
                         BoxShape* box = (BoxShape*)shape;
-                        Vector3 worldBoxPosition = startPos + box->Pose.Position;
 
-                        finalPosition.X = SweepAxis(worldBoxPosition, endPos, Vector3.UnitX, box, actor);
-                        finalPosition.Y = SweepAxis(worldBoxPosition, endPos, Vector3.UnitY, box, actor);
-                        finalPosition.Z = SweepAxis(worldBoxPosition, endPos, Vector3.UnitZ, box, actor);
+                        position.X = SweepAxis(position, movement.X, Vector3.UnitX, box, actor);
+                        position.Y = SweepAxis(position, movement.Y, Vector3.UnitY, box, actor);
+                        position.Z = SweepAxis(position, movement.Z, Vector3.UnitZ, box, actor);
                         break;
 
                     default:
@@ -216,76 +211,101 @@
                 }
             }
 
-            return finalPosition;
+            return position;
         }
 
-        private unsafe float SweepAxis(Vector3 start, Vector3 end, Vector3 axis, BoxShape* box, DynamicActor* actor)
+        public unsafe Vector3 MoveWithCollision(DynamicActor* actor, Vector3 targetPosition)
         {
-            Vector3 step = (end - start) * 0.1f;
+            Vector3 currentPosition = actor->pose.Position;
+            Vector3 movement = targetPosition - currentPosition;
+            
+            Vector3 newPosition = SweepMove(actor, movement);
+            actor->pose.Position = newPosition;
+            actor->lastPose.Position = currentPosition;
+            
+            return newPosition;
+        }
 
-            Vector3 s = start;
-            Vector3 c = s;
-            Vector3 e = end;
-            /*
-            while (Vector3.DistanceSquared(c, e) > 0.00001f)
+        public unsafe float SweepAxis(Vector3 position, float movement, Vector3 axis, BoxShape* box, DynamicActor* actor)
+        {
+            if (Math.Abs(movement) < 0.0001f)
+                return Vector3.Dot(position, axis);
+
+            float currentPos = Vector3.Dot(position, axis);
+            float targetPos = currentPos + movement;
+
+            const int steps = 10;
+            float stepSize = movement / steps;
+
+            for (int step = 0; step < steps; step++)
             {
-                c += step;
-                if (Math.Abs(currentPos) > Math.Abs(targetPos))
-                {
-                    currentPos = targetPos;
-                }
+                float testPos = currentPos + stepSize * (step + 1);
+                Vector3 testPosition = position + axis * (testPos - currentPos);
 
-                if (IsBoxColliding(c, box))
+                if (IsBoxColliding(testPosition, box))
                 {
+                    if (axis == Vector3.UnitY && movement < 0)
+                    {
+                        actor->Grounded = true;
+                    }
+
                     actor->LinearVelocity *= Vector3.One - axis;
-
-                    return currentPos - step;
+                    return currentPos;
                 }
-            }*/
 
-            return 0;
+                currentPos = testPos;
+            }
+
+            return targetPos;
         }
 
         private unsafe bool IsBoxColliding(Vector3 actorPosition, BoxShape* box)
         {
-            Vector3 worldBoxPosition = actorPosition + box->Pose.Position; // Apply local pose
-            Vector3 halfExtents = box->Size * 0.5f; // Get half-extents for AABB check
+            Vector3 worldBoxPosition = actorPosition + box->Pose.Position;
+            Vector3 halfExtents = box->Size * 0.5f;
 
-            Vector3[] corners = new Vector3[]
-            {
-        worldBoxPosition + new Vector3(-halfExtents.X, -halfExtents.Y, -halfExtents.Z),
-        worldBoxPosition + new Vector3( halfExtents.X, -halfExtents.Y, -halfExtents.Z),
-        worldBoxPosition + new Vector3(-halfExtents.X,  halfExtents.Y, -halfExtents.Z),
-        worldBoxPosition + new Vector3( halfExtents.X,  halfExtents.Y, -halfExtents.Z),
-        worldBoxPosition + new Vector3(-halfExtents.X, -halfExtents.Y,  halfExtents.Z),
-        worldBoxPosition + new Vector3( halfExtents.X, -halfExtents.Y,  halfExtents.Z),
-        worldBoxPosition + new Vector3(-halfExtents.X,  halfExtents.Y,  halfExtents.Z),
-        worldBoxPosition + new Vector3( halfExtents.X,  halfExtents.Y,  halfExtents.Z),
-            };
+            Vector3 min = worldBoxPosition - halfExtents;
+            Vector3 max = worldBoxPosition + halfExtents;
 
-            foreach (var corner in corners)
+            min = Vector128.Floor(min.AsVector128()).AsVector3();
+            max = Vector128.Floor(max.AsVector128()).AsVector3();
+            int minX = (int)min.X;
+            int minY = (int)min.Y;
+            int minZ = (int)min.Z;
+            int maxX = (int)max.X;
+            int maxY = (int)max.Y;
+            int maxZ = (int)max.Z;
+
+            for (int x = minX; x <= maxX; x++)
             {
-                if (IsVoxelSolid(corner))
+                for (int y = minY; y <= maxY; y++)
                 {
-                    return true; // Collision detected
+                    for (int z = minZ; z <= maxZ; z++)
+                    {
+                        if (!world.IsNoBlock(x, y, z))
+                        {
+                            return true;
+                        }
+                    }
                 }
             }
-            return false; // No collision
+
+            return false;
         }
 
         private bool IsVoxelSolid(Vector3 position)
         {
-            // Convert position to voxel grid coordinates
-            int voxelX = (int)Math.Floor(position.X);
-            int voxelY = (int)Math.Floor(position.Y);
-            int voxelZ = (int)Math.Floor(position.Z);
+            position = Vector128.Floor(position.AsVector128()).AsVector3();
+            int voxelX = (int)position.X;
+            int voxelY = (int)position.Y;
+            int voxelZ = (int)position.Z;
 
-            return !world.IsNoBlock(voxelX, voxelY, voxelZ); // Query your voxel world
+            return !world.IsNoBlock(voxelX, voxelY, voxelZ);
         }
 
         public unsafe bool HitCeiling(DynamicActor* actor, float maxCheckDistance = 0.5f)
         {
-            Pose* pose = &actor->Pose;
+            Pose* pose = &actor->pose;
             RaycastHit hit = CastRay(pose->Position, Vector3.UnitY, maxCheckDistance);
 
             if (hit.Hit)
@@ -330,10 +350,10 @@
             {
                 Chunk* chunk = world.Get((int)(x >> 4), (int)(y >> 4), (int)(z >> 4));
                 if (chunk == null || !chunk->InMemory)
-                    return new RaycastHit { Hit = false }; // No chunk exists
+                    return new RaycastHit { Hit = false };
 
                 Block block = chunk->GetBlockInternal((int)(x & 15), (int)(y & 15), (int)(z & 15));
-                if (block.Type != 0) // Hit a solid block
+                if (block.Type != 0)
                 {
                     Vector3 normal = lastStepAxis == 0 ? new Vector3(-stepX, 0, 0) :
                               lastStepAxis == 1 ? new Vector3(0, -stepY, 0) :

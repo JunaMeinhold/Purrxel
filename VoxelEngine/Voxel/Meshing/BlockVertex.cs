@@ -16,10 +16,10 @@ namespace VoxelEngine.Voxel.Meshing
 
             VoxelVertex* ptr = buffer->Increase(6);
 
-            VoxelVertex v0 = new(yL | kL | shared, default, tint);
-            VoxelVertex v1 = new(yR | kL | shared, default, tint);
-            VoxelVertex v2 = new(yR | kR | shared, default, tint);
-            VoxelVertex v3 = new(yL | kR | shared, default, tint);
+            VoxelVertex v0 = new(yL | kL | shared, tint);
+            VoxelVertex v1 = new(yR | kL | shared, tint);
+            VoxelVertex v2 = new(yR | kR | shared, tint);
+            VoxelVertex v3 = new(yL | kR | shared, tint);
 
             *ptr++ = v0;
             *ptr++ = v1;
@@ -36,10 +36,10 @@ namespace VoxelEngine.Voxel.Meshing
 
             VoxelVertex* ptr = buffer->Increase(6);
 
-            VoxelVertex v0 = new(xL | zL | shared, default, tint);
-            VoxelVertex v1 = new(xL | zR | shared, default, tint);
-            VoxelVertex v2 = new(xR | zR | shared, default, tint);
-            VoxelVertex v3 = new(xR | zL | shared, default, tint);
+            VoxelVertex v0 = new(xL | zL | shared, tint);
+            VoxelVertex v1 = new(xL | zR | shared, tint);
+            VoxelVertex v2 = new(xR | zR | shared, tint);
+            VoxelVertex v3 = new(xR | zL | shared, tint);
 
             *ptr++ = v0;
             *ptr++ = v1;
@@ -56,10 +56,10 @@ namespace VoxelEngine.Voxel.Meshing
 
             VoxelVertex* ptr = buffer->Increase(6);
 
-            VoxelVertex v0 = new(xR | yL | shared, default, tint);
-            VoxelVertex v1 = new(xR | yR | shared, default, tint);
-            VoxelVertex v2 = new(xL | yR | shared, default, tint);
-            VoxelVertex v3 = new(xL | yL | shared, default, tint);
+            VoxelVertex v0 = new(xR | yL | shared, tint);
+            VoxelVertex v1 = new(xR | yR | shared, tint);
+            VoxelVertex v2 = new(xL | yR | shared, tint);
+            VoxelVertex v3 = new(xL | yL | shared, tint);
 
             *ptr++ = v0;
             *ptr++ = v1;

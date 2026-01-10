@@ -1,6 +1,7 @@
 namespace VoxelEngine.Voxel.Meshing
 {
     using Hexa.NET.D3D11;
+    using Hexa.NET.Mathematics;
     using System;
     using System.Numerics;
     using System.Threading;
@@ -59,7 +60,7 @@ namespace VoxelEngine.Voxel.Meshing
             _lock.Exit();
         }
 
-        private bool AppendRange(VoxelVertex* values, int count, Vector3 offset)
+        private bool AppendRange(VoxelVertex* values, int count, uint chunkPosition)
         {
             int newCount = this.count + count;
             if (newCount > vertexBuffer!.Count) return false;
@@ -67,17 +68,17 @@ namespace VoxelEngine.Voxel.Meshing
             for (int i = 0, j = this.count; i < count; i++, j++)
             {
                 var v = values[i];
-                v.Position += offset;
+                v.ChunkPosition = chunkPosition;
                 vertices[j] = v;
             }
             this.count = newCount;
             return true;
         }
 
-        public bool BufferData(ChunkVertexBuffer vertexBuffer, Vector3 offset)
+        public bool BufferData(ChunkVertexBuffer vertexBuffer, Point3 offset)
         {
             if (vertexBuffer.Count == 0 || vertexBuffer.Data == null) return true;
-            bool result = AppendRange(vertexBuffer.Data, vertexBuffer.Count, offset);
+            bool result = AppendRange(vertexBuffer.Data, vertexBuffer.Count, VoxelVertex.PackChunkPosition(offset));
             dirty = true;
             return result;
         }

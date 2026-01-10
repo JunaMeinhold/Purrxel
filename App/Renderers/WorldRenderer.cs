@@ -73,7 +73,7 @@
                 Blend = new BlendDescription(Blend.SrcAlpha, Blend.InvSrcAlpha, Blend.One, Blend.InvSrcAlpha),
                 InputElements = (
                 [
-                    new("POSITION", 0, Format.R32G32B32Float, 0, -1, InputClassification.PerVertexData, 0),
+                    new("POSITION", 0, Format.R32Uint, 0, -1, InputClassification.PerVertexData, 0),
                     new("POSITION", 1, Format.R32Sint, 0, -1, InputClassification.PerVertexData, 0),
                     new("COLOR", 0, Format.R8G8B8A8Unorm, 0, -1, InputClassification.PerVertexData, 0),
                 ])
@@ -190,7 +190,7 @@
                 Blend = BlendDescription.Opaque,
                 InputElements = (
                 [
-                    new("POSITION", 0, Format.R32G32B32Float, 0, -1, InputClassification.PerVertexData, 0),
+                    new("POSITION", 0, Format.R32Uint, 0, -1, InputClassification.PerVertexData, 0),
                     new("POSITION", 1, Format.R32Sint, 0, -1, InputClassification.PerVertexData, 0),
                     new("COLOR", 0, Format.R8G8B8A8Unorm, 0, -1, InputClassification.PerVertexData, 0),
                 ])

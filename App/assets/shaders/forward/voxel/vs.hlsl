@@ -3,7 +3,7 @@
 
 cbuffer WorldData
 {
-	float3 chunkOffset;
+	float3 regionOffset;
 	float padd;
 };
 
@@ -12,22 +12,20 @@ cbuffer TexData
 	BlockDescription descs[256];
 };
 
-PixelInputType main(float3 position : POSITION, int aData : POSITION1, float4 color : COLOR)
+PixelInputType main(ChunkVertex vertex)
 {
 	PixelInputType output;
-
-	float3 relativePos = position + chunkOffset;
+    float3 position = GetVertexPosition(vertex);
+    float3 relativePos = position + regionOffset;
 
 	output.pos = float4(relativePos, 1);
 	output.position = mul(float4(relativePos, 1), relViewProj);
-
-	output.texID = int((aData >> 18) & (31));
-
-	output.color = color;
+    output.texID = int((vertex.aData >> 18) & (31));
+    output.color = vertex.color;
 
 	//output.brightness = (float((aData >> 23) & (15)) + 2) / 8.0;
 
-	int normal = int((aData >> 27) & (7));
+    int normal = int((vertex.aData >> 27) & (7));
 
 	if (normal < 2)
 	{

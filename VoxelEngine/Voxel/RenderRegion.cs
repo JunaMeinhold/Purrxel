@@ -122,8 +122,8 @@
                     for (int j = 0; j < ChunkSegment.CHUNK_SEGMENT_SIZE; j++)
                     {
                         Chunk* chunk = region.Chunks[j];
-                        opaqueVertexBuffer.BufferData(chunk->OpaqueVertexBuffer, (chunk->Position - min) * Chunk.CHUNK_SIZE);
-                        transparentVertexBuffer.BufferData(chunk->TransparentVertexBuffer, (chunk->Position - min) * Chunk.CHUNK_SIZE);
+                        opaqueVertexBuffer.BufferData(chunk->OpaqueVertexBuffer, (chunk->Position - min));
+                        transparentVertexBuffer.BufferData(chunk->TransparentVertexBuffer, (chunk->Position - min));
                         chunk->OpaqueVertexBuffer.ReleaseLock();
                         chunk->TransparentVertexBuffer.ReleaseLock();
                     }

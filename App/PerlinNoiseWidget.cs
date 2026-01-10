@@ -105,7 +105,7 @@
 
             ImGui.Separator();
 
-            ImGui.Image((ulong)texture.SRV.NativePointer, new(size));
+            ImGui.Image(new ImTextureRef(texId: texture.SRV.NativePointer), new(size));
 
             ImGui.End();
         }

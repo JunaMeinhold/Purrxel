@@ -447,7 +447,7 @@
                 {
                     // Logging Colors
                     ImGuiColorEditFlags flags =
-                            ImGuiColorEditFlags.Float | ImGuiColorEditFlags.AlphaPreview | ImGuiColorEditFlags.NoInputs | ImGuiColorEditFlags.AlphaBar;
+                            ImGuiColorEditFlags.Float | ImGuiColorEditFlags.AlphaPreviewHalf | ImGuiColorEditFlags.NoInputs | ImGuiColorEditFlags.AlphaBar;
 
                     ImGui.TextUnformatted("Color Palette");
                     ImGui.Indent();
