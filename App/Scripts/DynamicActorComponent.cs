@@ -6,7 +6,7 @@
 
     public unsafe class DynamicActorComponent : IPhysicsComponent
     {
-        private DynamicActor* actor;
+        private KinematicActor* actor;
 
         public GameObject GameObject { get; set; } = null!;
 
@@ -18,15 +18,15 @@
             actor->SetPosition(position);
         }
 
-        public void Move(Vector3 position)
+        public void Move(Vector3 position, float step)
         {
             if (actor == null) return;
-            GameObject.Scene.Physics.MoveWithCollision(actor, position);
+            GameObject.Scene.Physics.MoveKinematic(actor, position, step);
         }
 
         public void Awake()
         {
-            actor = GameObject.Scene.Physics.CreateActor();
+            actor = GameObject.Scene.Physics.CreateKinematicActor();
             actor->AddShape(new BoxShape(new(0.5f, 2, 0.5f)));
             actor->SetPosition(GameObject.Transform.GlobalPosition);
         }
@@ -34,7 +34,7 @@
         public void Destroy()
         {
             if (actor == null) return;
-            GameObject.Scene.Physics.DestroyActor(actor);
+            GameObject.Scene.Physics.DestroyKinematicActor(actor);
             actor = null;
         }
 

@@ -51,10 +51,4 @@
 		<ProjectReference Include="..\VoxelEngine.Core\VoxelEngine.Core.csproj" />
 	</ItemGroup>
 
-	<ItemGroup>
-		<None Update="FastNoise.dll">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</None>
-	</ItemGroup>
-
 </Project>

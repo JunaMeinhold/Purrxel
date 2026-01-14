@@ -231,6 +231,15 @@
             }
         }
 
+        public readonly void FreeSimulationMemory()
+        {
+            for (int i = 0; i < CHUNK_SEGMENT_SIZE; i++)
+            {
+                Chunk* chunk = Chunks[i];
+                chunk->FreeSimulationMemory();
+            }
+        }
+
         public long PreSerialize(Span<ChunkPreSerialized> preSerializeds)
         {
             long size = 0;

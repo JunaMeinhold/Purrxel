@@ -309,8 +309,6 @@
                 }
 
                 m_ScrollToBottom = false;
-
-                // Loop through command string vector.
             }
             ImGui.EndChild();
         }

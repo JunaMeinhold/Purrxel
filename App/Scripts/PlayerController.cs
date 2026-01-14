@@ -15,7 +15,7 @@
 
     public class PlayerController : ScriptComponent
     {
-        public float Speed = 30F;
+        public float Speed = 20F;
         public float AngluarSpeed = 20F;
         private bool leftDown;
         private bool rightDown;
@@ -26,6 +26,9 @@
         private Vector3 teleportLocation;
         private DynamicActorComponent actor;
         private bool freeCameraMode = true;
+        private float verticalVelocity = 0f;
+        private const float Gravity = -9.81f * 4;
+        private const float JumpForce = 20.0f;
 
         public override void Awake()
         {
@@ -286,66 +289,58 @@
         private void HandleMovement()
         {
             CameraTransform transform = camera.Transform;
-            Vector3 direction = default;
+            Vector3 rotation = transform.Rotation;
+            rotation.Y = 0;
+            Quaternion quaternion = rotation.ToRad().ToQuaternion();
+            Vector3 forward = Vector3.Transform(Vector3.UnitZ, quaternion);
+            Vector3 right = Vector3.Transform(Vector3.UnitX, quaternion);
+            Vector3 direction = Vector3.Zero;
+
             if (Keyboard.IsDown(Key.W))
             {
-                if (Keyboard.IsDown(Key.LCtrl))
-                {
-                    direction += transform.Forward * Speed * 2;
-                }
-                else
-                {
-                    direction += transform.Forward * Speed;
-                }
+                direction += forward;
             }
 
             if (Keyboard.IsDown(Key.S))
             {
-                if (Keyboard.IsDown(Key.LCtrl))
-                {
-                    direction += transform.Backward * Speed * 2;
-                }
-                else
-                {
-                    direction += transform.Backward * Speed;
-                }
+                direction += -forward;
             }
 
             if (Keyboard.IsDown(Key.A))
             {
-                if (Keyboard.IsDown(Key.LCtrl))
-                {
-                    direction += transform.Left * Speed * 2;
-                }
-                else
-                {
-                    direction += transform.Left * Speed;
-                }
+                direction += -right;
             }
 
             if (Keyboard.IsDown(Key.D))
             {
-                if (Keyboard.IsDown(Key.LCtrl))
-                {
-                    direction += transform.Right * Speed * 2;
-                }
-                else
-                {
-                    direction += transform.Right * Speed;
-                }
+                direction += right;
             }
 
-            if (Keyboard.IsDown(Key.Space) && actor.IsGrounded)
+            if (Keyboard.IsDown(Key.LCtrl))
             {
-                direction += Vector3.UnitY * 40;
+                direction *= Speed * 2;
             }
-
-            if (Keyboard.IsDown(Key.LShift))
+            else
             {
-                direction += -Vector3.UnitY * Speed;
+                direction *= Speed;
             }
 
-            actor.Move(GameObject.Transform.Position + direction * Time.Delta);
+            direction.Y = 0;
+
+            if (actor.IsGrounded)
+            {
+                verticalVelocity = 0f;
+
+                if (Keyboard.IsDown(Key.Space))
+                {
+                    verticalVelocity = JumpForce;
+                }
+            }
+            verticalVelocity += Gravity * Time.Delta;
+
+            direction.Y = verticalVelocity;
+
+            actor.Move(GameObject.Transform.Position + direction * Time.Delta, 0.001f);
         }
 
         public override void Destroy()

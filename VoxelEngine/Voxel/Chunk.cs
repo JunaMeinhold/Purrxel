@@ -16,6 +16,9 @@ namespace VoxelEngine.Voxel
         public const int CHUNK_SIZE_CUBED = 16 * 16 * 16;
         public const int CHUNK_SIZE_MINUS_ONE = 15;
         public const int CHUNK_SIZE_SHIFTED = 16 << 6;
+        public const int CHUNK_SHIFT_Y = 4;
+        public const int CHUNK_SHIFT_Z = 8;
+        public const int CHUNK_MASK = CHUNK_SIZE - 1;
 
         public int DimId;
         public Point3 Position;
@@ -174,6 +177,26 @@ namespace VoxelEngine.Voxel
             InBuffer = false;
             OpaqueVertexBuffer.Dispose();
             TransparentVertexBuffer.Dispose();
+            if (Data != null)
+            {
+                Free(Data);
+                Data = null;
+            }
+            if (MinY != null)
+            {
+                Free(MinY);
+                MinY = null;
+            }
+            if (MaxY != null)
+            {
+                Free(MaxY);
+                MaxY = null;
+            }
+            BlockMetadata.Release();
+        }
+
+        public void FreeSimulationMemory()
+        {
             if (Data != null)
             {
                 Free(Data);

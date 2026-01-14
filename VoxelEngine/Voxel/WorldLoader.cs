@@ -1,7 +1,6 @@
 ﻿namespace VoxelEngine.Voxel
 {
     using Hexa.NET.Mathematics;
-    using Hexa.NET.SDL2;
     using Hexa.NET.Utilities;
     using System.Collections.Generic;
     using System.Diagnostics;

@@ -5,103 +5,16 @@
     using HexaEngine.Queries.Generic;
     using System.Numerics;
     using System.Runtime.Intrinsics;
-    using System.Runtime.Intrinsics.X86;
     using VoxelEngine.Core;
     using VoxelEngine.Scenes;
     using VoxelEngine.Voxel;
-    using static Hexa.NET.Utilities.IO.FileUtils;
-
-    public interface IPhysicsComponent : IComponent
-    {
-        public void PreTick(PhysicsSystem system);
-
-        public void PostTick(PhysicsSystem system);
-    }
-
-    public struct RaycastHit
-    {
-        public Vector3 Position;
-        public Vector3 Normal;
-        public bool Hit;
-        public int BlockX, BlockY, BlockZ;
-    }
-
-    public enum ShapeType
-    {
-        Box,
-    }
-
-    public interface IShape
-    {
-        public ShapeType Type { get; }
-    }
-
-    public struct Pose
-    {
-        public Vector3 Position;
-        public Vector3 Rotation;
-    }
-
-    public struct Shape
-    {
-        public readonly ShapeType Type;
-        public Pose Pose;
-    }
-
-    public struct BoxShape : IShape
-    {
-        private readonly ShapeType type = ShapeType.Box;
-        public Pose Pose;
-        public Vector3 Size;
-
-        public BoxShape(Vector3 size)
-        {
-            Size = size;
-        }
-
-        public readonly ShapeType Type => type;
-    }
-
-    public unsafe struct DynamicActor
-    {
-        internal Pose pose;
-        internal Pose lastPose;
-
-        internal Vector3 LinearVelocity;
-        internal Vector3 AngularVelocity;
-        internal UnsafeList<Pointer<Shape>> shapes;
-
-        public bool Grounded;
-
-        public void SetPosition(Vector3 position)
-        {
-            if (pose.Position == position) return;
-            Grounded = false;
-            pose.Position = position;
-        }
-
-        public void Move(Vector3 position)
-        {
-            if (pose.Position == position) return;
-            Grounded = false;
-            lastPose = pose;
-            pose.Position = position;
-        }
-
-        public Vector3 GetPosition() => pose.Position;
-
-        public void AddShape<T>(T shape) where T : unmanaged, IShape
-        {
-            var s = AllocT(shape);
-            shapes.Add((Shape*)s);
-        }
-    }
 
     public unsafe class PhysicsSystem : ISceneSystem
     {
         private World world;
         private readonly ComponentTypeQuery<IPhysicsComponent> components = new();
         private UnsafeList<Pointer<DynamicActor>> actors;
+        private UnsafeList<Pointer<KinematicActor>> kinematicActors;
         private bool awaked;
 
         public string Name { get; } = "Physics System";
@@ -152,6 +65,20 @@
         public void DestroyActor(DynamicActor* actor)
         {
             actors.Remove(actor);
+            Free(actor);
+        }
+
+        public KinematicActor* CreateKinematicActor()
+        {
+            var actor = AllocT<KinematicActor>();
+            ZeroMemoryT(actor);
+            kinematicActors.Add(actor);
+            return actor;
+        }
+
+        public void DestroyKinematicActor(KinematicActor* actor)
+        {
+            kinematicActors.Remove(actor);
             Free(actor);
         }
 
@@ -214,18 +141,6 @@
             return position;
         }
 
-        public unsafe Vector3 MoveWithCollision(DynamicActor* actor, Vector3 targetPosition)
-        {
-            Vector3 currentPosition = actor->pose.Position;
-            Vector3 movement = targetPosition - currentPosition;
-            
-            Vector3 newPosition = SweepMove(actor, movement);
-            actor->pose.Position = newPosition;
-            actor->lastPose.Position = currentPosition;
-            
-            return newPosition;
-        }
-
         public unsafe float SweepAxis(Vector3 position, float movement, Vector3 axis, BoxShape* box, DynamicActor* actor)
         {
             if (Math.Abs(movement) < 0.0001f)
@@ -261,30 +176,76 @@
 
         private unsafe bool IsBoxColliding(Vector3 actorPosition, BoxShape* box)
         {
-            Vector3 worldBoxPosition = actorPosition + box->Pose.Position;
-            Vector3 halfExtents = box->Size * 0.5f;
+            Vector128<float> worldBoxPosition = actorPosition.AsVector128() + box->Pose.Position.AsVector128();
+            Vector128<float> halfExtents = box->Size.AsVector128() * 0.5f;
 
-            Vector3 min = worldBoxPosition - halfExtents;
-            Vector3 max = worldBoxPosition + halfExtents;
+            Vector128<float> min = worldBoxPosition - halfExtents;
+            Vector128<float> max = worldBoxPosition + halfExtents;
+            Vector128<int> minI = Vector128.ConvertToInt32(Vector128.Floor(min));
+            Vector128<int> maxI = Vector128.ConvertToInt32(Vector128.Floor(max));
+            Vector128<int> minC = minI >> Chunk.CHUNK_SHIFT_Y;
+            Vector128<int> maxC = maxI >> Chunk.CHUNK_SHIFT_Y;
+            var mask = Vector128.Create(Chunk.CHUNK_MASK);
+            Vector128<uint> minL = (minI & mask).AsUInt32();
+            Vector128<uint> maxL = (maxI & mask).AsUInt32();
+            int minChunkX = minC[0];
+            int minChunkY = minC[1];
+            int minChunkZ = minC[2];
+            int maxChunkX = maxC[0];
+            int maxChunkY = maxC[1];
+            int maxChunkZ = maxC[2];
 
-            min = Vector128.Floor(min.AsVector128()).AsVector3();
-            max = Vector128.Floor(max.AsVector128()).AsVector3();
-            int minX = (int)min.X;
-            int minY = (int)min.Y;
-            int minZ = (int)min.Z;
-            int maxX = (int)max.X;
-            int maxY = (int)max.Y;
-            int maxZ = (int)max.Z;
-
-            for (int x = minX; x <= maxX; x++)
+            using var guard = world.Chunks.ReadLock();
+            for (int cy = minChunkY; cy <= maxChunkY; cy++)
             {
-                for (int y = minY; y <= maxY; y++)
+                for (int cz = minChunkZ; cz <= maxChunkZ; cz++)
                 {
-                    for (int z = minZ; z <= maxZ; z++)
+                    for (int cx = minChunkX; cx <= maxChunkX; cx++)
                     {
-                        if (!world.IsNoBlock(x, y, z))
+                        if (cx < World.CHUNK_AMOUNT_X_MIN || cx >= World.CHUNK_AMOUNT_X ||
+                            cy < World.CHUNK_AMOUNT_Y_MIN || cy >= World.CHUNK_AMOUNT_Y ||
+                            cz < World.CHUNK_AMOUNT_Z_MIN || cz >= World.CHUNK_AMOUNT_Z)
                         {
-                            return true;
+                            continue;
+                        }
+
+                        Chunk* chunk = world.Chunks.GetUnsafe(new(cx, cy, cz));
+                        if (chunk == null || !chunk->InMemory)
+                        {
+                            continue;
+                        }
+
+                        uint localMinX = cx == minChunkX ? minL[0] : 0;
+                        uint localMinY = cy == minChunkY ? minL[1] : 0;
+                        uint localMinZ = cz == minChunkZ ? minL[2] : 0;
+                        uint localMaxX = cx == maxChunkX ? maxL[0] : 15;
+                        uint localMaxY = cy == maxChunkY ? maxL[1] : 15;
+                        uint localMaxZ = cz == maxChunkZ ? maxL[2] : 15;
+
+                        for (uint z = localMinZ; z <= localMaxZ; z++)
+                        {
+                            var zShift = z << Chunk.CHUNK_SHIFT_Z;
+                            var heightMapAccess = z * Chunk.CHUNK_SIZE;
+                            for (uint x = localMinX; x <= localMaxX; x++)
+                            {
+                                var xShift = x << Chunk.CHUNK_SHIFT_Y;
+                                var heightIdx = heightMapAccess++;
+
+                                var minY = chunk->MinY[heightIdx];
+                                var maxY = chunk->MaxY[heightIdx];
+
+                                var startY = Math.Max(localMinY, minY);
+                                var endY = Math.Min(localMaxY, maxY);
+
+                                var access = xShift + zShift + startY;
+                                for (uint y = startY; y <= endY; y++, access++)
+                                {
+                                    if (chunk->Data[access].Type != Chunk.EMPTY)
+                                    {
+                                        return true;
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -394,6 +355,93 @@
             }
 
             return new RaycastHit { Hit = false };
+        }
+
+        public unsafe Vector3 MoveKinematic(KinematicActor* actor, Vector3 targetPosition, float step)
+        {
+            Vector3 currentPosition = actor->pose.Position;
+            Vector3 movement = targetPosition - currentPosition;
+
+            if (actor->shapes.Size == 0)
+            {
+                actor->pose.Position = targetPosition;
+                return targetPosition;
+            }
+
+            Vector3 newPosition = currentPosition;
+
+            for (int i = 0; i < actor->shapes.Size; i++)
+            {
+                Shape* shape = actor->shapes[i];
+
+                switch (shape->Type)
+                {
+                    case ShapeType.Box:
+                        BoxShape* box = (BoxShape*)shape;
+
+                        newPosition.Y = SweepAxisKinematic(newPosition, movement.Y, Vector3.UnitY, box, actor, step);
+                        newPosition.X = SweepAxisKinematic(newPosition, movement.X, Vector3.UnitX, box, actor, step);
+                        newPosition.Z = SweepAxisKinematic(newPosition, movement.Z, Vector3.UnitZ, box, actor, step);
+                        const float epsilon = 0.0001f;
+                        const float epsilonSq = epsilon * epsilon;
+                        var delta = newPosition - currentPosition;
+                        delta.Y = 0;
+                        var length = delta.LengthSquared();
+                        if (length > epsilonSq && float.Abs(movement.Y) < epsilon)
+                        {
+                            Vector3 groundCheck = newPosition;
+                            groundCheck.Y -= 0.001f;
+                            if (!IsBoxColliding(groundCheck, box))
+                            {
+                                actor->Grounded = false;
+                            }
+                        }
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+
+            actor->pose.Position = newPosition;
+            actor->lastPose.Position = currentPosition;
+
+            return newPosition;
+        }
+
+        private unsafe float SweepAxisKinematic(Vector3 position, float movement, Vector3 axis, BoxShape* box, KinematicActor* actor, float stepSize)
+        {
+            const float epsilon = 0.0001f;
+            if (Math.Abs(movement) < epsilon)
+                return Vector3.Dot(position, axis);
+
+            float currentPos = Vector3.Dot(position, axis);
+            float targetPos = currentPos + movement;
+            float delta = targetPos - currentPos;
+
+            int steps = (int)float.Ceiling(float.Abs(delta) / stepSize);
+            stepSize = float.CopySign(stepSize, delta);
+
+            for (int step = 0; step < steps; step++)
+            {
+                float offset = float.MinMagnitude(stepSize * (step + 1), delta);
+                Vector3 testPosition = position + axis * offset;
+
+                if (IsBoxColliding(testPosition, box))
+                {
+                    if (axis.Y != 0)
+                    {
+                        actor->Grounded = movement < 0;
+                    }
+                    return currentPos + stepSize * step;
+                }
+            }
+
+            if (axis.Y != 0 && movement > 0)
+            {
+                actor->Grounded = false;
+            }
+            return targetPos;
         }
     }
 }

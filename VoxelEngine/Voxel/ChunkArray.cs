@@ -2,6 +2,7 @@
 {
     using Hexa.NET.Mathematics;
     using Hexa.NET.Utilities;
+    using System.Runtime.CompilerServices;
 
     public unsafe class ChunkArray
     {
@@ -31,6 +32,7 @@
             set => Set(pos, value);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void BeginRead()
         {
             writeLock.Wait();
@@ -40,6 +42,33 @@
             readSemaphore.Wait();
         }
 
+        public struct LockGuard : IDisposable
+        {
+            private ChunkArray? chunkArray;
+
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            public LockGuard(ChunkArray chunkArray)
+            {
+                this.chunkArray = chunkArray;
+                chunkArray.BeginRead();
+            }
+
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            public void Dispose()
+            {
+                if (chunkArray == null) return;
+                chunkArray.EndRead();
+                chunkArray = null;
+            }
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public LockGuard ReadLock()
+        {
+            return new LockGuard(this);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void EndRead()
         {
             var value = readSemaphore.Release();
@@ -49,6 +78,7 @@
             }
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void BeginWrite()
         {
             readLock.Wait();
@@ -58,6 +88,7 @@
             writeSemaphore.Wait();
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void EndWrite()
         {
             var value = writeSemaphore.Release();
@@ -83,19 +114,13 @@
             }
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public Chunk* Get(Point3 pos)
         {
             BeginRead();
             try
             {
-                if (chunks.TryGetValue(pos, out Pointer<Chunk> chunk))
-                {
-                    return chunk;
-                }
-                else
-                {
-                    return null;
-                }
+                return GetUnsafe(pos);
             }
             finally
             {
@@ -103,23 +128,36 @@
             }
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public Chunk* GetUnsafe(Point3 pos)
+        {
+            chunks.TryGetValue(pos, out Pointer<Chunk> chunk);
+            return chunk;
+        }
+
         public void Set(Point3 pos, Chunk* value)
         {
             BeginWrite();
             try
             {
-                if (value == null)
-                {
-                    chunks.Remove(pos);
-                }
-                else
-                {
-                    chunks[pos] = value;
-                }
+                SetUnsafe(pos, value);
             }
             finally
             {
                 EndWrite();
+            }
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void SetUnsafe(Point3 pos, Chunk* value)
+        {
+            if (value == null)
+            {
+                chunks.Remove(pos);
+            }
+            else
+            {
+                chunks[pos] = value;
             }
         }
 

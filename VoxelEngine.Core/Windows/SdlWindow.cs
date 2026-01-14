@@ -42,8 +42,8 @@
         private bool created;
         private int width = 1280;
         private int height = 720;
-        private int y = 100;
-        private int x = 100;
+        private int y = 1;
+        private int x = 1;
         private bool hovering;
         private bool focused;
         private WindowState state;
