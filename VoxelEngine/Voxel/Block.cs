@@ -2,6 +2,7 @@
 {
     using System;
     using System.Buffers.Binary;
+    using System.Runtime.CompilerServices;
     using System.Runtime.InteropServices;
 
     public interface IBinarySerializable
@@ -22,6 +23,8 @@
         }
 
         public static readonly Block Air = new(0);
+
+        public readonly bool IsAir => Type == 0;
 
         public static implicit operator ushort(Block block) => block.Type;
 
@@ -54,11 +57,13 @@
             return HashCode.Combine(Type);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool operator ==(Block left, Block right)
         {
             return left.Type == right.Type;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool operator !=(Block left, Block right)
         {
             return !(left == right);

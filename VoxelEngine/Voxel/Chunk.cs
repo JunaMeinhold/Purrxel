@@ -3,6 +3,7 @@ namespace VoxelEngine.Voxel
     using Hexa.NET.Mathematics;
     using System.Diagnostics;
     using System.Numerics;
+    using System.Runtime.CompilerServices;
     using VoxelEngine.Voxel.Meshing;
     using VoxelEngine.Voxel.Metadata;
     using VoxelEngine.Voxel.Serialization;
@@ -12,10 +13,10 @@ namespace VoxelEngine.Voxel
     {
         public const int EMPTY = 0;
         public const int CHUNK_SIZE = 16;
-        public const int CHUNK_SIZE_SQUARED = 16 * 16;
-        public const int CHUNK_SIZE_CUBED = 16 * 16 * 16;
+        public const int CHUNK_SIZE_SQUARED = CHUNK_SIZE * CHUNK_SIZE;
+        public const int CHUNK_SIZE_CUBED = CHUNK_SIZE_SQUARED * CHUNK_SIZE;
         public const int CHUNK_SIZE_MINUS_ONE = 15;
-        public const int CHUNK_SIZE_SHIFTED = 16 << 6;
+        public const int CHUNK_SIZE_SHIFTED = CHUNK_SIZE << 6;
         public const int CHUNK_SHIFT_Y = 4;
         public const int CHUNK_SHIFT_Z = 8;
         public const int CHUNK_MASK = CHUNK_SIZE - 1;
@@ -343,6 +344,12 @@ namespace VoxelEngine.Voxel
             {
                 _lock.Release();
             }
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public Block GetBlockUnsafe(uint index)
+        {
+            return Data[index];
         }
 
         public Block GetBlockInternal(int x, int y, int z)

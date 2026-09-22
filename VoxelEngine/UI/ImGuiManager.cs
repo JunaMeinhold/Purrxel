@@ -48,6 +48,7 @@
             io.ConfigViewportsNoTaskBarIcon = false;
             io.ConfigErrorRecoveryEnableAssert = false;
             io.ConfigErrorRecoveryEnableTooltip = true;
+            
 
             uint[] range = [0xE700, 0xF800, 0];
 

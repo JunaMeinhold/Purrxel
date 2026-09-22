@@ -102,7 +102,7 @@
 
             flags |= SDLWindowFlags.Hidden;
 
-            window = SdlCheckError(SDL.CreateWindow(ptr, x, y, width, height, (uint)flags));
+            window = SdlCheckError(SDL.CreateWindow(ptr, (int)SDL.SDL_WINDOWPOS_CENTERED_MASK, (int)SDL.SDL_WINDOWPOS_CENTERED_MASK, width, height, (uint)flags));
 
             WindowID = SDL.GetWindowID(window).SdlThrowIf();
 

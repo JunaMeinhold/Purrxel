@@ -242,45 +242,6 @@
             first = true;
         }
 
-        public struct Atomic<T> where T : unmanaged
-        {
-            private volatile T* current;
-            private T* next;
-
-            public Atomic()
-            {
-                current = AllocT<T>();
-                next = AllocT<T>();
-            }
-
-            public void Store(T value)
-            {
-                var tmp = current;
-                *next = value;
-                current = next;
-                next = tmp;
-            }
-
-            public T Read()
-            {
-                return *current;
-            }
-
-            public void Release()
-            {
-                if (current != null)
-                {
-                    Free(current);
-                    current = null;
-                }
-                if (next != null)
-                {
-                    Free(next);
-                    next = null;
-                }
-            }
-        }
-
         private unsafe void DispatchInitial(Point3 pos)
         {
             lastPos = pos;

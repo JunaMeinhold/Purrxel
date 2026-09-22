@@ -84,6 +84,8 @@
                 ImGui.Text(player.SelectedBlock.Name);
                 ImGui.InputFloat("Speed", ref Speed);
                 ImGui.Checkbox("Free Camera", ref freeCameraMode);
+
+                ImGui.InputFloat("Y Velocity", ref verticalVelocity);
             }
             ImGui.End();
 
@@ -327,6 +329,8 @@
 
             direction.Y = 0;
 
+            verticalVelocity += Gravity * Time.Delta;
+
             if (actor.IsGrounded)
             {
                 verticalVelocity = 0f;
@@ -336,11 +340,10 @@
                     verticalVelocity = JumpForce;
                 }
             }
-            verticalVelocity += Gravity * Time.Delta;
 
             direction.Y = verticalVelocity;
 
-            actor.Move(GameObject.Transform.Position + direction * Time.Delta, 0.001f);
+            actor.Move(GameObject.Transform.Position + direction * Time.Delta, 0.0001f);
         }
 
         public override void Destroy()

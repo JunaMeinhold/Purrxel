@@ -143,13 +143,15 @@
 
         public unsafe float SweepAxis(Vector3 position, float movement, Vector3 axis, BoxShape* box, DynamicActor* actor)
         {
-            if (Math.Abs(movement) < 0.0001f)
+            var movementAbs = Math.Abs(movement);
+            if (movementAbs < 0.0001f)
                 return Vector3.Dot(position, axis);
 
             float currentPos = Vector3.Dot(position, axis);
             float targetPos = currentPos + movement;
 
-            const int steps = 10;
+            const float unitPerStep = 0.1f;
+            int steps = (int)MathF.Ceiling(movementAbs / unitPerStep);
             float stepSize = movement / steps;
 
             for (int step = 0; step < steps; step++)
@@ -195,7 +197,6 @@
             int maxChunkY = maxC[1];
             int maxChunkZ = maxC[2];
 
-            using var guard = world.Chunks.ReadLock();
             for (int cy = minChunkY; cy <= maxChunkY; cy++)
             {
                 for (int cz = minChunkZ; cz <= maxChunkZ; cz++)
@@ -390,7 +391,7 @@
                         if (length > epsilonSq && float.Abs(movement.Y) < epsilon)
                         {
                             Vector3 groundCheck = newPosition;
-                            groundCheck.Y -= 0.001f;
+                            groundCheck.Y -= 0.0001f;
                             if (!IsBoxColliding(groundCheck, box))
                             {
                                 actor->Grounded = false;

@@ -84,6 +84,126 @@ ChunkSegment segment @ 0x0;
 
      */
 
+    public readonly unsafe ref struct ChunkVoxelEnumerable
+    {
+        private readonly Chunk* chunk;
+
+        public ChunkVoxelEnumerable(Chunk* chunk)
+        {
+            this.chunk = chunk;
+        }
+
+        public Enumerator GetEnumerator() => new(chunk);
+
+        public ref struct Enumerator
+        {
+            private readonly Chunk* chunk;
+            private byte x;
+            private byte y;
+            private byte yMax;
+            private byte z;
+
+            private int access;
+            private Block* voxel;
+
+            public Enumerator(Chunk* chunk)
+            {
+                this.chunk = chunk;
+
+                x = 0;
+                y = 0;
+                yMax = 0;
+                z = 0;
+
+                access = 0;
+                voxel = null;
+
+                Current = default;
+            }
+
+            public VoxelRef Current { get; private set; }
+
+            public bool MoveNext()
+            {
+                // Continue current column first.
+                if (voxel != null)
+                {
+                    y++;
+                    access++;
+                    voxel++;
+                }
+
+                while (true)
+                {
+                    // Scan current column.
+                    while (y < yMax)
+                    {
+                        if (voxel->Type != Chunk.EMPTY)
+                        {
+                            Current = new(voxel, (ushort)access, x, y, z);
+
+                            return true;
+                        }
+
+                        y++;
+                        access++;
+                        voxel++;
+                    }
+
+                    // Move to next column.
+                    x++;
+
+                    if (x >= Chunk.CHUNK_SIZE)
+                    {
+                        x = 0;
+                        z++;
+
+                        if (z >= Chunk.CHUNK_SIZE)
+                            return false;
+                    }
+
+                    int heightMapAccess = (z << 4) + x;
+
+                    y = chunk->MinY[heightMapAccess];
+                    yMax = chunk->MaxY[heightMapAccess];
+
+                    if (y >= yMax)
+                    {
+                        voxel = null;
+                        continue;
+                    }
+
+                    access = (z << 8) + (x << 4) + y;
+
+                    voxel = chunk->Data + access;
+                }
+            }
+        }
+    }
+
+    public unsafe struct VoxelRef
+    {
+        public Block* Block;
+        public ushort Index;
+        public byte X;
+        public byte Y;
+        public byte Z;
+
+        public VoxelRef(Block* ptr, ushort index, byte x, byte y, byte z)
+        {
+            Block = ptr;
+            Index = index;
+
+            X = x;
+            Y = y;
+            Z = z;
+        }
+
+        public ref Block Value => ref *Block;
+
+        public static implicit operator Block*(in VoxelRef voxelRef) => voxelRef.Block;
+    }
+
     public static class ChunkSerializer
     {
         public static unsafe ChunkPreSerialized PreSerialize(Chunk* chunk)
@@ -240,7 +360,7 @@ ChunkSegment segment @ 0x0;
             else
             {
                 *compression = ChunkCompression.RLE;
-                return runsWritten * sizeof(BlockRun);
+                return runsWritten * sizeof(HeightMapRun);
             }
         }
 
