@@ -1,0 +1,34 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="Debug" />
+    <BuildType Name="Release" />
+    <BuildType Name="ReleaseStrip" />
+    <BuildType Name="ReleaseStripNoProfiling" />
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/Tools/">
+    <Project Path="AssetsBundler/AssetsBundler.csproj">
+      <BuildType Solution="ReleaseStripNoProfiling|*" Project="Release" />
+      <BuildType Solution="ReleaseStrip|*" Project="Release" />
+      <Platform Solution="Release|x64" Project="x64" />
+    </Project>
+  </Folder>
+  <Project Path="Purrxel.Engine.Core/Purrxel.Engine.Core.csproj">
+    <BuildType Solution="ReleaseStripNoProfiling|*" Project="Release" />
+    <BuildType Solution="ReleaseStrip|*" Project="Release" />
+  </Project>
+  <Project Path="Purrxel.Engine/Purrxel.Engine.csproj">
+    <BuildType Solution="ReleaseStripNoProfiling|*" Project="Release" />
+    <BuildType Solution="ReleaseStrip|*" Project="Release" />
+  </Project>
+  <Project Path="Purrxel.Game/Purrxel.Game.csproj">
+    <BuildType Solution="ReleaseStripNoProfiling|*" Project="Release" />
+    <BuildType Solution="ReleaseStrip|*" Project="Release" />
+  </Project>
+  <Project Path="Purrxel/Purrxel.csproj">
+    <BuildType Solution="ReleaseStripNoProfiling|*" Project="Release" />
+    <BuildType Solution="ReleaseStrip|*" Project="Release" />
+  </Project>
+</Solution>

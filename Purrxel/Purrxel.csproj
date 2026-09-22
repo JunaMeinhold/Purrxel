@@ -16,6 +16,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\Purrxel.Engine\Purrxel.Engine.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<None Update="assets\shaders\bloom\downsample\ps.hlsl">
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
@@ -301,12 +305,6 @@
 		<None Update="assets\textures\sun\sunsprite.png">
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
-	</ItemGroup>
-
-
-
-	<ItemGroup>
-		<ProjectReference Include="..\VoxelEngine\VoxelEngine.csproj" />
 	</ItemGroup>
 
 
