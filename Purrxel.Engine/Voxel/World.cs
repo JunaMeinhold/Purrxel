@@ -1,8 +1,7 @@
-﻿namespace VoxelEngine.Voxel
+﻿namespace Purrxel.Engine.Voxel
 {
     using Hexa.NET.Mathematics;
     using Purrxel.Engine.Threading;
-    using Purrxel.Engine.Voxel;
     using Purrxel.Engine.Voxel.WorldGen;
     using System.Collections.Generic;
     using System.IO;

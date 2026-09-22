@@ -2,6 +2,7 @@
 {
     using Purrxel.Engine.Lights;
     using Purrxel.Engine.Scenes;
+    using Purrxel.Engine.Voxel;
     using Purrxel.Engine.Voxel.Blocks;
     using Purrxel.Engine.Voxel.WorldGen;
     using Purrxel.Objects;
@@ -9,7 +10,6 @@
     using Purrxel.Renderers.Forward;
     using Purrxel.Scripts;
     using System.Numerics;
-    using VoxelEngine.Voxel;
 
     public class MainScene
     {

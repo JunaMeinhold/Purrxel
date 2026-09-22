@@ -6,7 +6,6 @@
     using System;
     using System.Collections;
     using System.IO;
-    using VoxelEngine.Voxel;
 
     public unsafe struct ChunkSegment
     {

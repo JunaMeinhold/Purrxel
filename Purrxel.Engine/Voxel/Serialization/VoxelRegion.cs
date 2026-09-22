@@ -1,5 +1,4 @@
-﻿using VoxelEngine.Voxel;
-
+﻿
 namespace Purrxel.Engine.Voxel.Serialization
 {
     using Hexa.NET.Mathematics;

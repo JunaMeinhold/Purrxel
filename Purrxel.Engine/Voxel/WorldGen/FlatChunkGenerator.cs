@@ -2,7 +2,6 @@
 {
     using Hexa.NET.Mathematics;
     using Purrxel.Engine.Voxel;
-    using VoxelEngine.Voxel;
     using static Purrxel.Engine.Voxel.Blocks.BlockRegistry;
 
     public unsafe class FlatChunkGenerator : IChunkGenerator

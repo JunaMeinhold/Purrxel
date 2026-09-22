@@ -8,7 +8,6 @@
     using Purrxel.Engine.Scripting;
     using Purrxel.Engine.Voxel;
     using System.Numerics;
-    using VoxelEngine.Voxel;
 
     public class WorldController : ScriptComponent
     {

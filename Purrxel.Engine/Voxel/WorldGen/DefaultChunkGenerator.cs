@@ -7,7 +7,6 @@
     using Purrxel.Engine.Voxel.WorldGen.Biomes;
     using System;
     using System.Numerics;
-    using VoxelEngine.Voxel;
     using static Purrxel.Engine.Voxel.Blocks.BlockRegistry;
 
     public struct PrefabRecord

@@ -1,4 +1,4 @@
-# 🚀 High-Performance Voxel Engine (Minecraft-Like)
+# 🚀 Purrxel - High-Performance Voxel Engine (Minecraft-Like)
 
 A **high-performance, fully multi-threaded voxel engine** that supports **massive render distances without FPS drops**. Designed for **real-time procedural terrain generation, fast world streaming, and ultra-efficient memory management.**  
 

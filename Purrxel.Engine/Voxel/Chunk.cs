@@ -7,7 +7,6 @@ namespace Purrxel.Engine.Voxel
     using System.Diagnostics;
     using System.Numerics;
     using System.Runtime.CompilerServices;
-    using VoxelEngine.Voxel;
 
     [DebuggerDisplay($"{{{nameof(GetDebuggerDisplay)}(),nq}}")]
     public unsafe struct Chunk

@@ -3,7 +3,6 @@
     using Hexa.NET.Mathematics;
     using Purrxel.Engine.Voxel;
     using System.IO;
-    using VoxelEngine.Voxel;
 
     internal interface IVoxelRegionFileInternal
     {

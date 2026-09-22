@@ -8,7 +8,6 @@
     using Purrxel.Engine.Voxel;
     using System.Numerics;
     using System.Runtime.Intrinsics;
-    using VoxelEngine.Voxel;
 
     public unsafe class PhysicsSystem : ISceneSystem
     {

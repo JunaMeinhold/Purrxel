@@ -13,7 +13,6 @@
     using Purrxel.Objects;
     using System.Numerics;
     using System.Runtime.CompilerServices;
-    using VoxelEngine.Voxel;
 
     public class PlayerController : ScriptComponent
     {

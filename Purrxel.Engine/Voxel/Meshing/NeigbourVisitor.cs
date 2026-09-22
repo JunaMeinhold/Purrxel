@@ -2,7 +2,6 @@
 {
     using Purrxel.Engine.Voxel;
     using System.Numerics;
-    using VoxelEngine.Voxel;
 
     public unsafe struct ChunkNeighbours
     {

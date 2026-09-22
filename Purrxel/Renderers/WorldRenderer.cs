@@ -13,7 +13,6 @@
     using Purrxel.Engine.Voxel.Blocks;
     using System;
     using System.Numerics;
-    using VoxelEngine.Voxel;
 
     public struct WorldData
     {

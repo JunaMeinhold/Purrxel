@@ -1,8 +1,7 @@
-﻿namespace VoxelEngine.Voxel
+﻿namespace Purrxel.Engine.Voxel
 {
     using Hexa.NET.Mathematics;
     using Purrxel.Engine.Scenes;
-    using Purrxel.Engine.Voxel;
 
     public unsafe partial class World : GameObject
     {

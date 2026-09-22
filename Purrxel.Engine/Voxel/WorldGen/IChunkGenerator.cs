@@ -2,7 +2,6 @@
 {
     using Hexa.NET.Mathematics;
     using Purrxel.Engine.Voxel;
-    using VoxelEngine.Voxel;
 
     public interface IChunkGenerator : IDisposable
     {
