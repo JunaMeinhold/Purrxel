@@ -1,6 +1,6 @@
-﻿namespace VoxelEngine.Core.Input.Events
+﻿namespace Purrxel.Engine.Core.Input.Events
 {
-    using VoxelEngine.Core.Input;
+    using Purrxel.Engine.Core.Input;
 
     public class JoystickButtonEventArgs : EventArgs
     {

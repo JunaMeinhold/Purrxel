@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.Graphics.D3D11
+﻿namespace Purrxel.Engine.Graphics.D3D11
 {
     public abstract class DisposableRefBase : IDisposableRef
     {

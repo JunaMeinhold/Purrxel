@@ -1,11 +1,6 @@
-namespace VoxelEngine.Mathematics.Noise
+namespace Purrxel.Engine.Mathematics.Noise
 {
-    using Hexa.NET.ImGui;
-    using Hexa.NET.Mathematics;
-    using System.Numerics;
     using System.Runtime.CompilerServices;
-    using System.Runtime.Intrinsics;
-    using System.Runtime.Intrinsics.X86;
 
     public class PerlinNoise
     {

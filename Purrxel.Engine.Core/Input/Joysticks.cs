@@ -1,7 +1,7 @@
-﻿namespace VoxelEngine.Core.Input
+﻿namespace Purrxel.Engine.Core.Input
 {
-    using System.Runtime.CompilerServices;
     using Hexa.NET.SDL2;
+    using System.Runtime.CompilerServices;
 
     public static class Joysticks
     {

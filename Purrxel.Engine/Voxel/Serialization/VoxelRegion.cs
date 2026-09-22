@@ -1,7 +1,10 @@
-﻿namespace VoxelEngine.Voxel.Serialization
+﻿using VoxelEngine.Voxel;
+
+namespace Purrxel.Engine.Voxel.Serialization
 {
     using Hexa.NET.Mathematics;
     using Hexa.NET.Utilities;
+    using Purrxel.Engine.Voxel;
     using System.IO;
 
     public struct VoxelRegion

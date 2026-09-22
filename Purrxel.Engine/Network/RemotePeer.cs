@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.Network
+﻿namespace Purrxel.Engine.Network
 {
     using System.Net.Sockets;
 

@@ -1,7 +1,7 @@
-﻿namespace VoxelEngine.Core
+﻿namespace Purrxel.Engine.Core
 {
     using Hexa.NET.SDL2;
-    using VoxelEngine.Core.Windows;
+    using Purrxel.Engine.Core.Windows;
 
     /// <summary>
     /// A static class for retrieving information about displays and display modes.

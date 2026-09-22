@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.Mathematics
+﻿namespace Purrxel.Engine.Mathematics
 {
     using System.Numerics;
     using System.Runtime.InteropServices;

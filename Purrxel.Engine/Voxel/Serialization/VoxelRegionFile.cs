@@ -1,9 +1,9 @@
-﻿namespace VoxelEngine.Voxel.Serialization
+﻿namespace Purrxel.Engine.Voxel.Serialization
 {
     using Hexa.NET.Mathematics;
-    using HexaGen.Runtime.COM;
-    using K4os.Compression.LZ4.Streams;
+    using Purrxel.Engine.Voxel;
     using System.IO;
+    using VoxelEngine.Voxel;
 
     internal interface IVoxelRegionFileInternal
     {

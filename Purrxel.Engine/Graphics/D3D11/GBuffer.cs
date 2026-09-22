@@ -1,12 +1,14 @@
-﻿namespace VoxelEngine.Graphics.D3D11
+﻿namespace Purrxel.Engine.Graphics.D3D11
 {
     using Hexa.NET.D3D11;
     using Hexa.NET.DXGI;
     using HexaGen.Runtime.COM;
+    using Purrxel.Engine.Graphics;
+    using Purrxel.Engine.Graphics.D3D11;
+    using Purrxel.Engine.Resources;
     using System;
     using System.Numerics;
     using System.Runtime.CompilerServices;
-    using VoxelEngine.Resources;
 
     public unsafe class GBuffer : Resource
     {

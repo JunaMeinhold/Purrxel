@@ -1,6 +1,7 @@
-﻿namespace VoxelEngine.Core.Input
+﻿namespace Purrxel.Engine.Core.Input
 {
     using Hexa.NET.SDL2;
+    using Purrxel.Engine.Core;
 
     public unsafe class Haptic
     {

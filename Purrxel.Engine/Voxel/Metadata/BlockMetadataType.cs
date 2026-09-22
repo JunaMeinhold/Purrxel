@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.Voxel.Metadata
+﻿namespace Purrxel.Engine.Voxel.Metadata
 {
     public enum BlockMetadataType
     {

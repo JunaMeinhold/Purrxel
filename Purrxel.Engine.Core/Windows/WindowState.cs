@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.Core.Windows
+﻿namespace Purrxel.Engine.Core.Windows
 {
     public enum WindowState
     {

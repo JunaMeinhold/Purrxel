@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.Physics
+﻿namespace Purrxel.Engine.Physics
 {
     using Hexa.NET.Utilities;
     using System.Numerics;

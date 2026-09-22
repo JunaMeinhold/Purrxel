@@ -1,7 +1,7 @@
-﻿namespace VoxelEngine.Graphics.Primitives
+﻿namespace Purrxel.Engine.Graphics.Primitives
 {
-    using VoxelEngine.Mathematics;
-    using VoxelEngine.Objects;
+    using Purrxel.Engine.Mathematics;
+    using Purrxel.Engine.Objects;
 
     public class LineBox : Mesh<LineVertex, ushort>
     {

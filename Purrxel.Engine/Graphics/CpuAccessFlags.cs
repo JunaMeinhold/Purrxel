@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.Graphics
+﻿namespace Purrxel.Engine.Graphics
 {
     [Flags]
     public enum CpuAccessFlags

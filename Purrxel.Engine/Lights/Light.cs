@@ -1,11 +1,9 @@
-﻿namespace VoxelEngine.Lightning
+﻿namespace Purrxel.Engine.Lights
 {
+    using Purrxel.Engine.Core;
+    using Purrxel.Engine.Graphics.Buffers;
+    using Purrxel.Engine.Scenes;
     using System.Numerics;
-    using VoxelEngine.Core;
-    using VoxelEngine.Graphics;
-    using VoxelEngine.Graphics.Buffers;
-    using VoxelEngine.Lights;
-    using VoxelEngine.Scenes;
 
     public abstract class Light : GameObject
     {

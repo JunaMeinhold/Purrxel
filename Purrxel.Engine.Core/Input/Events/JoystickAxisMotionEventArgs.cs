@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.Core.Input.Events
+﻿namespace Purrxel.Engine.Core.Input.Events
 {
     public class JoystickAxisMotionEventArgs : EventArgs
     {

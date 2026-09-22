@@ -1,8 +1,8 @@
-﻿namespace VoxelEngine.Voxel
+﻿namespace Purrxel.Engine.Voxel
 {
     using Hexa.NET.Mathematics;
-    using VoxelEngine.Core;
-    using VoxelEngine.Voxel.Blocks;
+    using Purrxel.Engine.Core;
+    using Purrxel.Engine.Voxel.Blocks;
 
     public unsafe struct LightMap
     {

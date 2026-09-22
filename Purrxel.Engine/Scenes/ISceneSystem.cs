@@ -1,6 +1,6 @@
-﻿namespace VoxelEngine.Scenes
+﻿namespace Purrxel.Engine.Scenes
 {
-    using VoxelEngine.Collections;
+    using Purrxel.Engine.Collections;
 
     public interface ISceneSystem : IHasFlags<SystemFlags>
     {

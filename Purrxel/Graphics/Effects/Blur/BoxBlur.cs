@@ -1,11 +1,10 @@
-﻿namespace HexaEngine.Graphics.Effects.Blur
+﻿namespace Purrxel.Graphics.Effects.Blur
 {
-    using Hexa.NET.D3D11;
+    using Purrxel.Engine.Graphics;
+    using Purrxel.Engine.Graphics.Buffers;
+    using Purrxel.Engine.Graphics.D3D11;
     using System.Numerics;
     using System.Runtime.CompilerServices;
-    using VoxelEngine.Graphics;
-    using VoxelEngine.Graphics.Buffers;
-    using VoxelEngine.Graphics.D3D11;
 
     public class BoxBlur
     {

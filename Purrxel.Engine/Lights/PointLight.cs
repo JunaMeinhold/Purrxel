@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.Lightning
+﻿namespace Purrxel.Engine.Lights
 {
     public class PointLight
     {

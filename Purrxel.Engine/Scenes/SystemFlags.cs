@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.Scenes
+﻿namespace Purrxel.Engine.Scenes
 {
     public enum SystemFlags
     {

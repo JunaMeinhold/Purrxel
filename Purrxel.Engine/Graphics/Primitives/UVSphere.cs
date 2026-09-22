@@ -1,13 +1,11 @@
-﻿namespace VoxelEngine.Graphics.Primitives
+﻿namespace Purrxel.Engine.Graphics.Primitives
 {
     using Hexa.NET.Mathematics;
-    using Hexa.NET.Utilities;
+    using Purrxel.Engine.Graphics.Buffers;
+    using Purrxel.Engine.Mathematics;
+    using Purrxel.Engine.Objects;
     using System;
-    using System.Linq;
     using System.Numerics;
-    using VoxelEngine.Graphics.Buffers;
-    using VoxelEngine.Mathematics;
-    using VoxelEngine.Objects;
 
     public class UVSphere : Mesh<Vertex, uint>
     {

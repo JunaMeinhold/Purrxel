@@ -1,20 +1,18 @@
-﻿namespace App.Pipelines.Effects
+﻿namespace Purrxel.Graphics.Effects
 {
-    using Hexa.NET.D3D11;
     using Hexa.NET.D3DCommon;
     using Hexa.NET.DXGI;
-    using HexaGen.Runtime.COM;
+    using Purrxel.Engine.Graphics;
+    using Purrxel.Engine.Graphics.Buffers;
+    using Purrxel.Engine.Graphics.D3D11;
+    using Purrxel.Engine.Lights;
+    using Purrxel.Engine.Scenes;
     using System.Numerics;
-    using VoxelEngine.Graphics;
-    using VoxelEngine.Graphics.Buffers;
-    using VoxelEngine.Graphics.D3D11;
-    using VoxelEngine.Lightning;
-    using VoxelEngine.Scenes;
 
     public unsafe class GodRaysEffect : DisposableBase
     {
         private Hexa.NET.Mathematics.Viewport viewport;
-        private readonly VoxelEngine.Graphics.Primitives.Plane plane;
+        private readonly Engine.Graphics.Primitives.Plane plane;
         private readonly ConstantBuffer<SunParams> paramsSunBuffer;
         private readonly ConstantBuffer<CBWorld> paramsWorldBuffer;
         private readonly SamplerState sunSampler;

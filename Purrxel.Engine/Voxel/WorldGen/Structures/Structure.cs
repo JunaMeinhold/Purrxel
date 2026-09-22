@@ -1,6 +1,7 @@
-﻿namespace VoxelEngine.Voxel.WorldGen.Structures
+﻿namespace Purrxel.Engine.Voxel.WorldGen.Structures
 {
-    using VoxelEngine.Voxel.Metadata;
+    using Purrxel.Engine.Voxel;
+    using Purrxel.Engine.Voxel.Metadata;
 
     public enum StructurePlacementStrategy
     {

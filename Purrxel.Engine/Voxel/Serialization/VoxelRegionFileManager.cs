@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.Voxel.Serialization
+﻿namespace Purrxel.Engine.Voxel.Serialization
 {
     using Hexa.NET.Mathematics;
     using System.Runtime.CompilerServices;

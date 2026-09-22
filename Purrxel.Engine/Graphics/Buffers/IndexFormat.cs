@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.Graphics.Buffers
+﻿namespace Purrxel.Engine.Graphics.Buffers
 {
     /// <summary>
     /// Specifies the format of an index used by index buffers.

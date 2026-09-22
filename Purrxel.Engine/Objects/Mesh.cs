@@ -1,12 +1,10 @@
-﻿namespace VoxelEngine.Objects
+﻿namespace Purrxel.Engine.Objects
 {
-    using Hexa.NET.D3D11;
-    using HexaGen.Runtime.COM;
+    using Purrxel.Engine.Graphics;
+    using Purrxel.Engine.Graphics.Buffers;
+    using Purrxel.Engine.Graphics.D3D11;
+    using Purrxel.Engine.Resources;
     using System.Runtime.CompilerServices;
-    using VoxelEngine.Graphics;
-    using VoxelEngine.Graphics.Buffers;
-    using VoxelEngine.Graphics.D3D11;
-    using VoxelEngine.Resources;
 
     public abstract class Mesh<TVertex, TIndex> : Resource where TVertex : unmanaged where TIndex : unmanaged
     {

@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.Core.Input
+﻿namespace Purrxel.Engine.Core.Input
 {
     using Hexa.NET.SDL2;
 

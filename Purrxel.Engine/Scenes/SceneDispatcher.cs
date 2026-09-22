@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.Scenes
+﻿namespace Purrxel.Engine.Scenes
 {
     using System;
     using System.Collections.Concurrent;

@@ -1,9 +1,9 @@
-﻿namespace VoxelEngine.Core.Input
+﻿namespace Purrxel.Engine.Core.Input
 {
+    using Hexa.NET.SDL2;
+    using Purrxel.Engine.Core.Input.Events;
     using System.Numerics;
     using System.Text;
-    using Hexa.NET.SDL2;
-    using VoxelEngine.Core.Input.Events;
 
     public unsafe class Joystick : IDisposable
     {

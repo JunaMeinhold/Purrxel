@@ -1,9 +1,9 @@
-﻿namespace VoxelEngine.Scenes
+﻿namespace Purrxel.Engine.Scenes
 {
+    using Purrxel.Engine.Core;
+    using Purrxel.Engine.Windows;
     using System.Runtime.CompilerServices;
     using System.Threading.Tasks;
-    using VoxelEngine.Core;
-    using VoxelEngine.Windows;
 
     /// <summary>
     /// Contains the <see cref="Current"/> scene and informs about a change (<see cref="SceneChanged"/>) of <see cref="Current"/>

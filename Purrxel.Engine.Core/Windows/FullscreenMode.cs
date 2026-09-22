@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.Core.Windows
+﻿namespace Purrxel.Engine.Core.Windows
 {
     /// <summary>
     /// Specifies the fullscreen mode for a window.

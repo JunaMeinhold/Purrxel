@@ -1,7 +1,7 @@
-﻿namespace HexaEngine.Queries
+﻿namespace Purrxel.Engine.Queries
 {
-    using VoxelEngine.Collections;
-    using VoxelEngine.Scenes;
+    using Purrxel.Engine.Collections;
+    using Purrxel.Engine.Scenes;
 
     public interface IQuery : IHasFlags<QueryFlags>, IDisposable
     {

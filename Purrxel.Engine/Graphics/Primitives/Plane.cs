@@ -1,11 +1,10 @@
-﻿namespace VoxelEngine.Graphics.Primitives
+﻿namespace Purrxel.Engine.Graphics.Primitives
 {
+    using Purrxel.Engine.Graphics;
+    using Purrxel.Engine.Graphics.Buffers;
+    using Purrxel.Engine.Graphics.D3D11;
+    using Purrxel.Engine.Mathematics;
     using System.Numerics;
-    using Hexa.NET.D3D11;
-    using HexaGen.Runtime.COM;
-    using VoxelEngine.Graphics.Buffers;
-    using VoxelEngine.Graphics.D3D11;
-    using VoxelEngine.Mathematics;
 
     public unsafe class Plane : IPrimitive
     {

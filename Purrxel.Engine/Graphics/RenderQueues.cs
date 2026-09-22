@@ -1,7 +1,5 @@
-﻿namespace VoxelEngine.Graphics
+﻿namespace Purrxel.Engine.Graphics
 {
-    using VoxelEngine.Scenes;
-
     public readonly struct RenderComponentComparer : IComparer<IRenderComponent>
     {
         public static readonly RenderComponentComparer Instance = new();

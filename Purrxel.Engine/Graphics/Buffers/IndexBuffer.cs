@@ -1,11 +1,12 @@
-﻿namespace VoxelEngine.Graphics.Buffers
+﻿namespace Purrxel.Engine.Graphics.Buffers
 {
     using Hexa.NET.D3D11;
     using Hexa.NET.DXGI;
     using HexaGen.Runtime.COM;
+    using Purrxel.Engine.Graphics;
+    using Purrxel.Engine.Graphics.D3D11;
+    using Purrxel.Engine.Resources;
     using System.Runtime.CompilerServices;
-    using VoxelEngine.Graphics.D3D11;
-    using VoxelEngine.Resources;
 
     public unsafe class IndexBuffer<T> : Resource, IBuffer where T : unmanaged
     {

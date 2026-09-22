@@ -1,7 +1,7 @@
-﻿namespace VoxelEngine.Core.Input.Events
+﻿namespace Purrxel.Engine.Core.Input.Events
 {
+    using Purrxel.Engine.Core.Input;
     using System.Numerics;
-    using VoxelEngine.Core.Input;
 
     public class MouseWheelEventArgs : EventArgs
     {

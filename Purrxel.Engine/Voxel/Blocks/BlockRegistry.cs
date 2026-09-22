@@ -1,6 +1,6 @@
-﻿namespace VoxelEngine.Voxel.Blocks
+﻿namespace Purrxel.Engine.Voxel.Blocks
 {
-    using System;
+    using Purrxel.Engine.Voxel;
     using System.Collections.Concurrent;
     using System.Collections.Generic;
 

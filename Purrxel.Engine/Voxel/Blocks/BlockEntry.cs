@@ -1,6 +1,6 @@
-﻿namespace VoxelEngine.Voxel.Blocks
+﻿namespace Purrxel.Engine.Voxel.Blocks
 {
-    using VoxelEngine.Voxel;
+    using Purrxel.Engine.Voxel;
 
     public struct BlockEntry
     {

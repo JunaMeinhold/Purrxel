@@ -1,12 +1,12 @@
-﻿namespace App
+﻿namespace Purrxel
 {
     using Hexa.NET.D3D11;
     using Hexa.NET.DXGI;
     using Hexa.NET.ImGui;
+    using Purrxel.Engine.Graphics;
+    using Purrxel.Engine.Graphics.D3D11;
+    using Purrxel.Engine.Mathematics.Noise;
     using System.Numerics;
-    using VoxelEngine.Graphics;
-    using VoxelEngine.Graphics.D3D11;
-    using VoxelEngine.Mathematics.Noise;
 
     public unsafe class PerlinNoiseWidget
     {

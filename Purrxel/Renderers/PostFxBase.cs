@@ -1,8 +1,8 @@
-﻿namespace App.Renderers
+﻿namespace Purrxel.Renderers
 {
     using Hexa.NET.Mathematics;
-    using VoxelEngine.Graphics;
-    using VoxelEngine.Graphics.D3D11;
+    using Purrxel.Engine.Graphics;
+    using Purrxel.Engine.Graphics.D3D11;
 
     public abstract class PostFxBase : IPostFx
     {

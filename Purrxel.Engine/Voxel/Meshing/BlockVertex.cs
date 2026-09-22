@@ -1,5 +1,6 @@
-namespace VoxelEngine.Voxel.Meshing
+namespace Purrxel.Engine.Voxel.Meshing
 {
+    using Purrxel.Engine.Voxel;
     using System.Runtime.CompilerServices;
 
     public static unsafe class BlockVertex

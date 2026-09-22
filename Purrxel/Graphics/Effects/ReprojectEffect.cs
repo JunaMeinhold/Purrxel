@@ -1,9 +1,9 @@
-﻿namespace App.Graphics.Effects
+﻿namespace Purrxel.Graphics.Effects
 {
+    using Purrxel.Engine.Graphics;
+    using Purrxel.Engine.Graphics.Buffers;
+    using Purrxel.Engine.Graphics.D3D11;
     using System.Numerics;
-    using VoxelEngine.Graphics;
-    using VoxelEngine.Graphics.Buffers;
-    using VoxelEngine.Graphics.D3D11;
 
     public enum ReprojectFlags
     {

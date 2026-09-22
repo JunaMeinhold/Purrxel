@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.Scenes
+﻿namespace Purrxel.Engine.Scenes
 {
     using Hexa.NET.Mathematics;
     using System.ComponentModel;

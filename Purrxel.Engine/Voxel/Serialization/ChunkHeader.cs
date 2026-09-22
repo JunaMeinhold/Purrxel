@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.Voxel.Serialization
+﻿namespace Purrxel.Engine.Voxel.Serialization
 {
     using System.Buffers.Binary;
     using System.Runtime.CompilerServices;

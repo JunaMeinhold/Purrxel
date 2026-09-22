@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.Lightning
+﻿namespace Purrxel.Engine.Lights
 {
     using System.Numerics;
     using System.Runtime.CompilerServices;

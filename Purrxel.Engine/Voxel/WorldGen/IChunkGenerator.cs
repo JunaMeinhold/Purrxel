@@ -1,7 +1,7 @@
-﻿namespace VoxelEngine.Voxel.WorldGen
+﻿namespace Purrxel.Engine.Voxel.WorldGen
 {
     using Hexa.NET.Mathematics;
-    using System.Numerics;
+    using Purrxel.Engine.Voxel;
     using VoxelEngine.Voxel;
 
     public interface IChunkGenerator : IDisposable

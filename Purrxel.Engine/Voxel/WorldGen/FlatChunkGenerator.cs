@@ -1,9 +1,9 @@
-﻿namespace VoxelEngine.Voxel.WorldGen
+﻿namespace Purrxel.Engine.Voxel.WorldGen
 {
     using Hexa.NET.Mathematics;
-    using System.Numerics;
+    using Purrxel.Engine.Voxel;
     using VoxelEngine.Voxel;
-    using static VoxelEngine.Voxel.Blocks.BlockRegistry;
+    using static Purrxel.Engine.Voxel.Blocks.BlockRegistry;
 
     public unsafe class FlatChunkGenerator : IChunkGenerator
     {

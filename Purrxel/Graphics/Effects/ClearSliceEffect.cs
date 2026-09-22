@@ -1,9 +1,9 @@
-﻿namespace App.Graphics.Effects
+﻿namespace Purrxel.Graphics.Effects
 {
     using Hexa.NET.Mathematics;
-    using VoxelEngine.Graphics;
-    using VoxelEngine.Graphics.Buffers;
-    using VoxelEngine.Graphics.D3D11;
+    using Purrxel.Engine.Graphics;
+    using Purrxel.Engine.Graphics.Buffers;
+    using Purrxel.Engine.Graphics.D3D11;
 
     public class ClearSliceEffect : DisposableBase
     {

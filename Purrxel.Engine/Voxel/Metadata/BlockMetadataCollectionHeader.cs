@@ -1,8 +1,7 @@
-﻿namespace VoxelEngine.Voxel.Metadata
+﻿namespace Purrxel.Engine.Voxel.Metadata
 {
+    using Purrxel.Engine.IO;
     using System.Buffers.Binary;
-    using VoxelEngine.IO;
-    using VoxelEngine.Voxel.Serialization;
 
     public readonly struct BlockMetadataCollectionHeader
     {

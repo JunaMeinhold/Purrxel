@@ -1,14 +1,15 @@
-﻿namespace VoxelEngine.Graphics.D3D11
+﻿namespace Purrxel.Engine.Graphics.D3D11
 {
-    using System;
-    using System.Runtime.CompilerServices;
-    using System.Runtime.InteropServices;
     using Hexa.NET.D3D11;
     using Hexa.NET.DirectXTex;
     using Hexa.NET.DXGI;
     using HexaGen.Runtime;
     using HexaGen.Runtime.COM;
-    using VoxelEngine.IO;
+    using Purrxel.Engine.Graphics;
+    using Purrxel.Engine.IO;
+    using System;
+    using System.Runtime.CompilerServices;
+    using System.Runtime.InteropServices;
     using Format = Hexa.NET.DXGI.Format;
     using ID3D11Device = Hexa.NET.D3D11.ID3D11Device;
 

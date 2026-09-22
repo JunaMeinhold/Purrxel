@@ -1,13 +1,13 @@
-﻿namespace App.Scripts
+﻿namespace Purrxel.Scripts
 {
     using Hexa.NET.ImGui;
     using Hexa.NET.Mathematics;
     using Hexa.NET.Utilities.Text;
+    using Purrxel.Engine.Core;
+    using Purrxel.Engine.Graphics.D3D11;
+    using Purrxel.Engine.Scripting;
+    using Purrxel.Engine.Voxel;
     using System.Numerics;
-    using VoxelEngine.Core;
-    using VoxelEngine.Graphics.D3D11;
-    using VoxelEngine.Scenes;
-    using VoxelEngine.Scripting;
     using VoxelEngine.Voxel;
 
     public class WorldController : ScriptComponent

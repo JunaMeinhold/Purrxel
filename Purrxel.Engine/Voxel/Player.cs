@@ -1,9 +1,10 @@
-﻿namespace VoxelEngine.Voxel
+﻿namespace Purrxel.Engine.Voxel
 {
     using Hexa.NET.Mathematics;
+    using Purrxel.Engine.Scenes;
+    using Purrxel.Engine.Voxel.Blocks;
     using System.Numerics;
-    using VoxelEngine.Scenes;
-    using VoxelEngine.Voxel.Blocks;
+    using VoxelEngine.Voxel;
 
     public class Player : GameObject
     {

@@ -1,4 +1,4 @@
-﻿namespace App.Graphics.Graph
+﻿namespace Purrxel.Graphics.Graph
 {
     public class ResourceDescriptor<T> : IResourceDescriptor<T>, IResourceDescriptor where T : struct
     {

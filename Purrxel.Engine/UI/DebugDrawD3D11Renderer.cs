@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.UI
+﻿namespace Purrxel.Engine.UI
 {
     using Hexa.NET.D3D11;
     using Hexa.NET.D3DCommon;
@@ -6,10 +6,10 @@
     using Hexa.NET.DebugDraw;
     using Hexa.NET.DXGI;
     using HexaGen.Runtime.COM;
+    using Purrxel.Engine.Graphics.D3D11;
     using System;
     using System.Diagnostics;
     using System.Numerics;
-    using VoxelEngine.Graphics.D3D11;
 
     public unsafe class DebugDrawD3D11Renderer : IDisposable
     {

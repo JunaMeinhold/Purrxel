@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.Core.Unsafes
+﻿namespace Purrxel.Engine.Core.Unsafes
 {
     using System.Numerics;
 

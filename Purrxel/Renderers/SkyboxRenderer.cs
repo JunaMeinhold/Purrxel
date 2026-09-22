@@ -1,13 +1,13 @@
-﻿namespace App.Renderers
+﻿namespace Purrxel.Renderers
 {
     using Hexa.NET.Mathematics.Sky;
     using Hexa.NET.Mathematics.Sky.Preetham;
+    using Purrxel.Engine.Graphics;
+    using Purrxel.Engine.Graphics.Buffers;
+    using Purrxel.Engine.Graphics.D3D11;
+    using Purrxel.Engine.Graphics.Primitives;
+    using Purrxel.Engine.Scenes;
     using System.Numerics;
-    using VoxelEngine.Graphics;
-    using VoxelEngine.Graphics.Buffers;
-    using VoxelEngine.Graphics.D3D11;
-    using VoxelEngine.Graphics.Primitives;
-    using VoxelEngine.Scenes;
 
     public class SkyboxRenderer : BaseRenderComponent
     {

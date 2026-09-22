@@ -1,8 +1,8 @@
-﻿namespace App.Objects
+﻿namespace Purrxel.Objects
 {
+    using Purrxel.Engine.Voxel;
+    using Purrxel.Scripts;
     using System.Numerics;
-    using App.Scripts;
-    using VoxelEngine.Voxel;
 
     public class CPlayer : Player
     {

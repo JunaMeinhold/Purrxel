@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.Graphics.D3D11
+﻿namespace Purrxel.Engine.Graphics.D3D11
 {
     [Flags]
     public enum GpuAccessFlags : int

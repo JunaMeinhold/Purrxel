@@ -1,8 +1,8 @@
-﻿namespace App.Scripts
+﻿namespace Purrxel.Scripts
 {
+    using Purrxel.Engine.Physics;
+    using Purrxel.Engine.Scenes;
     using System.Numerics;
-    using VoxelEngine.Physics;
-    using VoxelEngine.Scenes;
 
     public unsafe class DynamicActorComponent : IPhysicsComponent
     {

@@ -1,8 +1,8 @@
 ﻿namespace AssetsBundler
 {
+    using CommandLine;
     using System;
     using System.IO;
-    using CommandLine;
 
     internal class Program
     {

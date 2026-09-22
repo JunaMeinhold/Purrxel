@@ -1,7 +1,7 @@
-﻿namespace App.Graphics.Graph
+﻿namespace Purrxel.Graphics.Graph
 {
+    using Purrxel.Engine.Graphics;
     using System.Collections.Generic;
-    using VoxelEngine.Graphics;
 
     public struct ResourceEntry : IEquatable<ResourceEntry>
     {

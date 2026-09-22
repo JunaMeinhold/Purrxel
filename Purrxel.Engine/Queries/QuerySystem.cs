@@ -1,8 +1,8 @@
-﻿namespace HexaEngine.Queries
+﻿namespace Purrxel.Engine.Queries
 {
     using Hexa.NET.Mathematics;
-    using VoxelEngine.Collections;
-    using VoxelEngine.Scenes;
+    using Purrxel.Engine.Collections;
+    using Purrxel.Engine.Scenes;
 
     public class QuerySystem : ISceneSystem, IDisposable
     {

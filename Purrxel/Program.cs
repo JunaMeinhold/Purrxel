@@ -1,11 +1,9 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using App;
-using App.Renderers;
-using System.Diagnostics;
-using VoxelEngine.Core;
-using VoxelEngine.Debugging;
-using VoxelEngine.Mathematics.Noise;
-using VoxelEngine.Windows;
+using Purrxel;
+using Purrxel.Engine.Core;
+using Purrxel.Engine.Debugging;
+using Purrxel.Engine.Windows;
+using Purrxel.Renderers;
 
 Logger.Initialize();
 Application.Boot();

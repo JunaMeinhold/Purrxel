@@ -1,7 +1,7 @@
-﻿namespace VoxelEngine.Core.Input
+﻿namespace Purrxel.Engine.Core.Input
 {
     using Hexa.NET.SDL2;
-    using VoxelEngine.Core.Input.Events;
+    using Purrxel.Engine.Core.Input.Events;
 
     public unsafe class GamepadTouchpad
     {

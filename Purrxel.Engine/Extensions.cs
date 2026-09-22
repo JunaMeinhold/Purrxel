@@ -1,8 +1,8 @@
-﻿namespace VoxelEngine
+﻿namespace Purrxel.Engine
 {
+    using Purrxel.Engine.Scenes;
     using System;
     using System.Linq;
-    using VoxelEngine.Scenes;
 
     public static class Extensions
     {

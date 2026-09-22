@@ -1,11 +1,11 @@
-﻿namespace VoxelEngine.Graphics
+﻿namespace Purrxel.Engine.Graphics
 {
     using Hexa.NET.D3D11;
     using Hexa.NET.DXGI;
     using HexaGen.Runtime.COM;
+    using Purrxel.Engine.Graphics.D3D11;
     using System.Numerics;
     using System.Runtime.CompilerServices;
-    using VoxelEngine.Graphics.D3D11;
     using Viewport = Hexa.NET.Mathematics.Viewport;
 
     public unsafe class GraphicsContext

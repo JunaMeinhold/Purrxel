@@ -1,10 +1,10 @@
-﻿namespace App.Graphics.Effects
+﻿namespace Purrxel.Graphics.Effects
 {
     using Hexa.NET.D3D11;
+    using Purrxel.Engine.Graphics;
+    using Purrxel.Engine.Graphics.Buffers;
+    using Purrxel.Engine.Graphics.D3D11;
     using System.Numerics;
-    using VoxelEngine.Graphics;
-    using VoxelEngine.Graphics.Buffers;
-    using VoxelEngine.Graphics.D3D11;
     using Viewport = Hexa.NET.Mathematics.Viewport;
 
     public enum CopyFilter

@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.IO
+﻿namespace Purrxel.Engine.IO
 {
     using System.IO;
 

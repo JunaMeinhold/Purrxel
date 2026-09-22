@@ -1,6 +1,5 @@
-﻿namespace VoxelEngine.UI
+﻿namespace Purrxel.Engine.UI
 {
-    using System.Numerics;
     using Hexa.NET.ImGui;
     using Hexa.NET.ImGui.Backends.D3D11;
     using Hexa.NET.ImGui.Backends.SDL2;
@@ -8,13 +7,14 @@
     using Hexa.NET.ImGuizmo;
     using Hexa.NET.ImNodes;
     using Hexa.NET.ImPlot;
-    using VoxelEngine.Core;
-    using VoxelEngine.Core.Windows;
-    using SDLWindow = Hexa.NET.SDL2.SDLWindow;
-    using SDLEvent = Hexa.NET.SDL2.SDLEvent;
+    using HexaGen.Runtime.COM;
+    using Purrxel.Engine.Core;
+    using Purrxel.Engine.Core.Windows;
+    using System.Numerics;
     using ID3D11Device = Hexa.NET.D3D11.ID3D11Device;
     using ID3D11DeviceContext = Hexa.NET.D3D11.ID3D11DeviceContext;
-    using HexaGen.Runtime.COM;
+    using SDLEvent = Hexa.NET.SDL2.SDLEvent;
+    using SDLWindow = Hexa.NET.SDL2.SDLWindow;
 
     public class ImGuiManager
     {
@@ -48,7 +48,7 @@
             io.ConfigViewportsNoTaskBarIcon = false;
             io.ConfigErrorRecoveryEnableAssert = false;
             io.ConfigErrorRecoveryEnableTooltip = true;
-            
+
 
             uint[] range = [0xE700, 0xF800, 0];
 

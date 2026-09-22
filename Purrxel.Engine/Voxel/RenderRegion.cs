@@ -1,10 +1,12 @@
-﻿namespace VoxelEngine.Voxel
+﻿using VoxelEngine.Voxel;
+
+namespace Purrxel.Engine.Voxel
 {
     using Hexa.NET.Mathematics;
+    using Purrxel.Engine.Graphics;
+    using Purrxel.Engine.Voxel.Meshing;
     using System.Collections.Generic;
     using System.Numerics;
-    using VoxelEngine.Graphics;
-    using VoxelEngine.Voxel.Meshing;
 
     public unsafe class RenderRegion
     {

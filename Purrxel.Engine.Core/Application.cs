@@ -1,10 +1,10 @@
-﻿namespace VoxelEngine.Core
+﻿namespace Purrxel.Engine.Core
 {
-    using System.Collections.Generic;
     using Hexa.NET.SDL2;
-    using VoxelEngine.Core.Input;
-    using VoxelEngine.Core.Windows;
-    using VoxelEngine.Core.Windows.Events;
+    using Purrxel.Engine.Core.Input;
+    using Purrxel.Engine.Core.Windows;
+    using Purrxel.Engine.Core.Windows.Events;
+    using System.Collections.Generic;
 
     public static unsafe class Application
     {

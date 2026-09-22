@@ -1,7 +1,7 @@
-﻿namespace App.Objects
+﻿namespace Purrxel.Objects
 {
-    using App.Renderers;
-    using VoxelEngine.Scenes;
+    using Purrxel.Engine.Scenes;
+    using Purrxel.Renderers;
 
     public class Skybox : GameObject
     {

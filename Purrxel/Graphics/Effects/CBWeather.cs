@@ -1,4 +1,4 @@
-﻿namespace App.Pipelines.Effects
+﻿namespace Purrxel.Graphics.Effects
 {
     using System.Numerics;
 

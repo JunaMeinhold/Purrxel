@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.Physics
+﻿namespace Purrxel.Engine.Physics
 {
     using System.Numerics;
 

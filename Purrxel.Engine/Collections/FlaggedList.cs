@@ -1,11 +1,11 @@
-﻿namespace VoxelEngine.Collections
+﻿namespace Purrxel.Engine.Collections
 {
     using Hexa.NET.Utilities.Extensions;
+    using Purrxel.Engine.Scenes;
     using System;
     using System.Collections;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
-    using VoxelEngine.Scenes;
 
     public interface IHasFlags<T> where T : Enum
     {

@@ -1,8 +1,7 @@
-﻿namespace VoxelEngine.Voxel.Metadata
+﻿namespace Purrxel.Engine.Voxel.Metadata
 {
     using System.Buffers.Binary;
     using System.Runtime.CompilerServices;
-    using VoxelEngine.Voxel.Serialization;
 
     public interface IBlockMetadata
     {

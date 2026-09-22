@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.Debugging
+﻿namespace Purrxel.Engine.Debugging
 {
     using System.Collections.Generic;
     using System.Diagnostics;

@@ -1,9 +1,9 @@
-﻿namespace VoxelEngine.Graphics.D3D11
+﻿namespace Purrxel.Engine.Graphics.D3D11
 {
     using Hexa.NET.D3D11;
     using Hexa.NET.DXGI;
+    using Purrxel.Engine.Graphics;
     using System;
-    using System.Collections.Generic;
 
     public struct Texture2DDescription : IEquatable<Texture2DDescription>
     {

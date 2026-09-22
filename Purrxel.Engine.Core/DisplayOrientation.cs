@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.Core
+﻿namespace Purrxel.Engine.Core
 {
     /// <summary>
     /// Represents the orientation of a display.

@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.Core
+﻿namespace Purrxel.Engine.Core
 {
     using System;
     using System.Diagnostics;

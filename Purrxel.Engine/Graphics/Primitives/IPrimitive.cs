@@ -1,8 +1,7 @@
-﻿namespace VoxelEngine.Graphics.Primitives
+﻿namespace Purrxel.Engine.Graphics.Primitives
 {
-    using Hexa.NET.D3D11;
-    using HexaGen.Runtime.COM;
-    using VoxelEngine.Graphics.D3D11;
+    using Purrxel.Engine.Graphics;
+    using Purrxel.Engine.Graphics.D3D11;
 
     public interface IPrimitive : IDisposable
     {

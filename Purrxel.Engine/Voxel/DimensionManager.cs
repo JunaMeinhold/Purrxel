@@ -1,4 +1,6 @@
-﻿namespace VoxelEngine.Voxel
+﻿using VoxelEngine.Voxel;
+
+namespace Purrxel.Engine.Voxel
 {
     using System.Collections.Generic;
 

@@ -1,4 +1,4 @@
-﻿namespace App.Renderers
+﻿namespace Purrxel.Renderers
 {
     using System.Numerics;
 

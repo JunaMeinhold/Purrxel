@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.Objects
+﻿namespace Purrxel.Engine.Objects
 {
     public enum BindType
     {

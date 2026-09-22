@@ -1,11 +1,11 @@
-﻿namespace App
+﻿namespace Purrxel
 {
     using Hexa.NET.ImGui;
     using Hexa.NET.ImPlot;
+    using Purrxel.Engine.Core;
+    using Purrxel.Engine.Core.Unsafes;
+    using Purrxel.Engine.Voxel;
     using System.Collections.Generic;
-    using VoxelEngine.Core;
-    using VoxelEngine.Core.Unsafes;
-    using VoxelEngine.Voxel;
 
     public unsafe class WorldProfilerWidget
     {

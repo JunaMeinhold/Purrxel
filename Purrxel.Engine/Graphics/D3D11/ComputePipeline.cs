@@ -1,9 +1,9 @@
-﻿namespace VoxelEngine.Graphics.D3D11
+﻿namespace Purrxel.Engine.Graphics.D3D11
 {
     using Hexa.NET.D3D11;
     using HexaGen.Runtime.COM;
+    using Purrxel.Engine.Debugging;
     using System.Runtime.CompilerServices;
-    using VoxelEngine.Debugging;
 
     public unsafe class ComputePipeline : DisposableRefBase, IPipeline, IDisposable
     {

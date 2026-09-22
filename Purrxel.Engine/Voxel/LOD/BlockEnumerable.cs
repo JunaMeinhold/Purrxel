@@ -1,5 +1,6 @@
-﻿namespace VoxelEngine.Voxel.LOD
+﻿namespace Purrxel.Engine.Voxel.LOD
 {
+    using Purrxel.Engine.Voxel;
     using System.Runtime.CompilerServices;
 
     public unsafe struct BlockEnumerable

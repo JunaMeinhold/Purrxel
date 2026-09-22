@@ -1,11 +1,12 @@
-﻿namespace VoxelEngine.Graphics.D3D11
+﻿namespace Purrxel.Engine.Graphics.D3D11
 {
     using Hexa.NET.D3D11;
     using Hexa.NET.D3DCommon;
     using Hexa.NET.DXGI;
     using HexaGen.Runtime.COM;
+    using Purrxel.Engine.Graphics;
+    using Purrxel.Engine.IO;
     using System.Runtime.CompilerServices;
-    using VoxelEngine.IO;
 
     public unsafe class Texture2D : DisposableRefBase, IShaderResourceView, IUnorderedAccessView, IRenderTargetView, IResource
     {

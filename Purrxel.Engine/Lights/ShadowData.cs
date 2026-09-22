@@ -1,8 +1,7 @@
-﻿namespace VoxelEngine.Lights
+﻿namespace Purrxel.Engine.Lights
 {
     using System.Numerics;
     using System.Runtime.CompilerServices;
-    using VoxelEngine.Lightning;
 
     public struct ShadowData
     {

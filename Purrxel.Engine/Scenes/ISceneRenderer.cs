@@ -1,7 +1,7 @@
-﻿namespace VoxelEngine.Scenes
+﻿namespace Purrxel.Engine.Scenes
 {
-    using VoxelEngine.Graphics;
-    using VoxelEngine.Windows;
+    using Purrxel.Engine.Graphics;
+    using Purrxel.Engine.Windows;
 
     /// <summary>
     /// The interface for render callbacks.

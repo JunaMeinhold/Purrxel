@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.Core.Windows.Events
+﻿namespace Purrxel.Engine.Core.Windows.Events
 {
     using System;
 

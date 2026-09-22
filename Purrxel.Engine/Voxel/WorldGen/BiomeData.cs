@@ -1,8 +1,7 @@
-﻿namespace VoxelEngine.Voxel.WorldGen
+﻿namespace Purrxel.Engine.Voxel.WorldGen
 {
-    using VoxelEngine.Mathematics.Noise;
-    using VoxelEngine.Voxel.WorldGen.Biomes;
-    using static System.Runtime.InteropServices.JavaScript.JSType;
+    using Purrxel.Engine.Mathematics.Noise;
+    using Purrxel.Engine.Voxel.WorldGen.Biomes;
 
     public struct BiomeData
     {

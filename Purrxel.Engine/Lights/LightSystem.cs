@@ -1,13 +1,12 @@
-﻿namespace VoxelEngine.Lights
+﻿namespace Purrxel.Engine.Lights
 {
-    using HexaEngine.Queries.Generic;
+    using Purrxel.Engine.Core;
+    using Purrxel.Engine.Graphics;
+    using Purrxel.Engine.Graphics.Buffers;
+    using Purrxel.Engine.Graphics.D3D11;
+    using Purrxel.Engine.Queries.Generic;
+    using Purrxel.Engine.Scenes;
     using System.Numerics;
-    using VoxelEngine.Core;
-    using VoxelEngine.Graphics;
-    using VoxelEngine.Graphics.Buffers;
-    using VoxelEngine.Graphics.D3D11;
-    using VoxelEngine.Lightning;
-    using VoxelEngine.Scenes;
 
     public struct LightParams
     {

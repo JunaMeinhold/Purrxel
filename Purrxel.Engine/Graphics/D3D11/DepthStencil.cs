@@ -1,11 +1,12 @@
-﻿namespace VoxelEngine.Graphics.D3D11
+﻿namespace Purrxel.Engine.Graphics.D3D11
 {
     using Hexa.NET.D3D11;
     using Hexa.NET.D3DCommon;
     using Hexa.NET.DXGI;
     using HexaGen.Runtime.COM;
+    using Purrxel.Engine.Graphics;
+    using Purrxel.Engine.Resources;
     using System.Runtime.CompilerServices;
-    using VoxelEngine.Resources;
     using Format = Hexa.NET.DXGI.Format;
 
     public unsafe class DepthStencil : Resource, IDepthStencilView, IShaderResourceView

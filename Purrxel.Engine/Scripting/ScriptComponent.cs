@@ -1,6 +1,6 @@
-﻿namespace VoxelEngine.Scripting
+﻿namespace Purrxel.Engine.Scripting
 {
-    using VoxelEngine.Scenes;
+    using Purrxel.Engine.Scenes;
 
     /// <summary>
     /// For scripts that need both frame wise updates and not frame wise updates.

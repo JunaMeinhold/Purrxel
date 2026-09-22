@@ -1,13 +1,13 @@
-﻿namespace App.Graphics.Graph
+﻿namespace Purrxel.Graphics.Graph
 {
     using Hexa.NET.Mathematics;
+    using Purrxel.Engine.Graphics;
+    using Purrxel.Engine.Graphics.Buffers;
+    using Purrxel.Engine.Graphics.D3D11;
     using System;
     using System.Collections;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
-    using VoxelEngine.Graphics;
-    using VoxelEngine.Graphics.Buffers;
-    using VoxelEngine.Graphics.D3D11;
 
     public class GraphResourceBuilder : IGraphResourceBuilder
     {

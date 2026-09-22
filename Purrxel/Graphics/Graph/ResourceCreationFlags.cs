@@ -1,4 +1,4 @@
-﻿namespace App.Graphics.Graph
+﻿namespace Purrxel.Graphics.Graph
 {
     using System;
 

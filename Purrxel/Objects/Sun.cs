@@ -1,6 +1,6 @@
-﻿namespace App.Objects
+﻿namespace Purrxel.Objects
 {
-    using VoxelEngine.Scenes;
+    using Purrxel.Engine.Scenes;
 
     public class Sun : GameObject
     {

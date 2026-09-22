@@ -1,12 +1,12 @@
-namespace VoxelEngine.Voxel.Meshing
+namespace Purrxel.Engine.Voxel.Meshing
 {
     using Hexa.NET.D3D11;
     using Hexa.NET.Mathematics;
+    using Purrxel.Engine.Graphics;
+    using Purrxel.Engine.Graphics.Buffers;
+    using Purrxel.Engine.Voxel;
     using System;
-    using System.Numerics;
     using System.Threading;
-    using VoxelEngine.Graphics;
-    using VoxelEngine.Graphics.Buffers;
 
     public unsafe class RegionVertexBuffer : IDisposable
     {

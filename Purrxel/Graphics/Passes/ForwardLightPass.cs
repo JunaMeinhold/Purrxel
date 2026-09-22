@@ -1,10 +1,10 @@
-﻿namespace App.Pipelines.Deferred
+﻿namespace Purrxel.Graphics.Passes
 {
-    using App.Graphics.Graph;
     using Hexa.NET.DXGI;
-    using VoxelEngine.Graphics;
-    using VoxelEngine.Graphics.D3D11;
-    using VoxelEngine.Scenes;
+    using Purrxel.Engine.Graphics;
+    using Purrxel.Engine.Graphics.D3D11;
+    using Purrxel.Engine.Scenes;
+    using Purrxel.Graphics.Graph;
 
     public class ForwardLightPass : RenderPass
     {

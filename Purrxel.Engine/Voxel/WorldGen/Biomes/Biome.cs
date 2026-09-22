@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.Voxel.WorldGen.Biomes
+﻿namespace Purrxel.Engine.Voxel.WorldGen.Biomes
 {
     public class Biome
     {

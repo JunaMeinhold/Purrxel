@@ -1,15 +1,15 @@
-﻿namespace App
+﻿namespace Purrxel
 {
-    using App.Objects;
-    using App.Renderers;
-    using App.Renderers.Forward;
-    using App.Scripts;
+    using Purrxel.Engine.Lights;
+    using Purrxel.Engine.Scenes;
+    using Purrxel.Engine.Voxel.Blocks;
+    using Purrxel.Engine.Voxel.WorldGen;
+    using Purrxel.Objects;
+    using Purrxel.Renderers;
+    using Purrxel.Renderers.Forward;
+    using Purrxel.Scripts;
     using System.Numerics;
-    using VoxelEngine.Lightning;
-    using VoxelEngine.Scenes;
     using VoxelEngine.Voxel;
-    using VoxelEngine.Voxel.Blocks;
-    using VoxelEngine.Voxel.WorldGen;
 
     public class MainScene
     {

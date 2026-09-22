@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.Core.Windows.Events
+﻿namespace Purrxel.Engine.Core.Windows.Events
 {
     /// <summary>
     /// Provides event arguments for the resized event of a window.

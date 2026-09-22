@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.Core
+﻿namespace Purrxel.Engine.Core
 {
     /// <summary>
     /// Represents a display mode, which specifies the format, width, height, refresh rate, and driver data of a display.

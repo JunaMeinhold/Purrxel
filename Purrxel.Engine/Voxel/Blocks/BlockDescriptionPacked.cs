@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.Voxel.Blocks
+﻿namespace Purrxel.Engine.Voxel.Blocks
 {
     using System.Runtime.InteropServices;
 

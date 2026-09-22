@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.Threading
+﻿namespace Purrxel.Engine.Threading
 {
     using System;
     using System.Runtime.InteropServices;

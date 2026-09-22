@@ -1,20 +1,16 @@
-﻿using App.Renderers;
-
-namespace App.Graphics.Passes
+﻿namespace Purrxel.Graphics.Passes
 {
-    using App.Graphics.Effects;
-    using App.Graphics.Graph;
-    using App.Pipelines.Deferred;
     using Hexa.NET.DXGI;
-    using HexaEngine.Graphics.Effects.Blur;
+    using Purrxel.Engine.Core;
+    using Purrxel.Engine.Graphics;
+    using Purrxel.Engine.Graphics.Buffers;
+    using Purrxel.Engine.Graphics.D3D11;
+    using Purrxel.Engine.Lights;
+    using Purrxel.Engine.Scenes;
+    using Purrxel.Graphics.Effects;
+    using Purrxel.Graphics.Effects.Blur;
+    using Purrxel.Graphics.Graph;
     using System.Numerics;
-    using VoxelEngine.Core;
-    using VoxelEngine.Graphics;
-    using VoxelEngine.Graphics.Buffers;
-    using VoxelEngine.Graphics.D3D11;
-    using VoxelEngine.Lightning;
-    using VoxelEngine.Lights;
-    using VoxelEngine.Scenes;
 
     public class ShadowMapPass : RenderPass
     {

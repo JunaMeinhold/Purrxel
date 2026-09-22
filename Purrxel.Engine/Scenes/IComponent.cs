@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.Scenes
+﻿namespace Purrxel.Engine.Scenes
 {
     /// <summary>
     /// Interface for SceneElement Components

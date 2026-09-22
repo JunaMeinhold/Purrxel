@@ -1,11 +1,11 @@
-﻿namespace VoxelEngine.Graphics.D3D11
+﻿namespace Purrxel.Engine.Graphics.D3D11
 {
-    using System.Diagnostics;
-    using System.Runtime.CompilerServices;
     using Hexa.NET.D3D11;
     using Hexa.NET.D3DCommon;
     using Hexa.NET.DXGI;
     using HexaGen.Runtime.COM;
+    using Purrxel.Engine.Graphics;
+    using System.Runtime.CompilerServices;
 
     public static class D3D11DeviceManager
     {

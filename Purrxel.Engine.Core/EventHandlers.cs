@@ -1,7 +1,7 @@
-﻿namespace VoxelEngine.Core
+﻿namespace Purrxel.Engine.Core
 {
+    using Purrxel.Engine.Core.Windows.Events;
     using System;
-    using VoxelEngine.Core.Windows.Events;
 
     public delegate void EventHandler<TSender, TEventArgs>(TSender sender, TEventArgs e);
 

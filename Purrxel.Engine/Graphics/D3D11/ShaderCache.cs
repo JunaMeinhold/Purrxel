@@ -1,11 +1,11 @@
-﻿namespace VoxelEngine.Graphics.D3D11
+﻿namespace Purrxel.Engine.Graphics.D3D11
 {
     using Hexa.NET.D3D11;
     using Hexa.NET.DXGI;
+    using Purrxel.Engine.Debugging;
     using System.Buffers.Binary;
     using System.Diagnostics.CodeAnalysis;
     using System.Text;
-    using VoxelEngine.Debugging;
 
     /// <summary>
     /// Thread-safe shader cache

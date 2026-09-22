@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.Network.Protocol
+﻿namespace Purrxel.Engine.Network.Protocol
 {
     public enum KeyExchange
     {

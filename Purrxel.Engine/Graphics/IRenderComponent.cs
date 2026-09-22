@@ -1,8 +1,6 @@
-﻿namespace VoxelEngine.Scenes
+﻿namespace Purrxel.Engine.Graphics
 {
-    using Hexa.NET.D3D11;
-    using HexaGen.Runtime.COM;
-    using VoxelEngine.Graphics;
+    using Purrxel.Engine.Scenes;
 
     public interface IRenderComponent : IComponent
     {

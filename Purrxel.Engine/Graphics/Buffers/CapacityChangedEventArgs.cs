@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.Graphics.Buffers
+﻿namespace Purrxel.Engine.Graphics.Buffers
 {
     public struct CapacityChangedEventArgs
     {

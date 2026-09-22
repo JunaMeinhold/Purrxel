@@ -1,6 +1,7 @@
-﻿namespace VoxelEngine.Voxel.Serialization
+﻿namespace Purrxel.Engine.Voxel.Serialization
 {
     using Hexa.NET.Utilities;
+    using Purrxel.Engine.Voxel;
 
     public unsafe struct ChunkPreSerialized
     {

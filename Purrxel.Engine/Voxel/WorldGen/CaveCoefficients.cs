@@ -1,9 +1,8 @@
-﻿namespace VoxelEngine.Voxel.WorldGen
+﻿namespace Purrxel.Engine.Voxel.WorldGen
 {
-    using System.Runtime.CompilerServices;
     using Hexa.NET.Mathematics;
-    using VoxelEngine.Mathematics;
-    using VoxelEngine.Mathematics.Noise;
+    using Purrxel.Engine.Mathematics.Noise;
+    using System.Runtime.CompilerServices;
 
     public struct CaveCoefficients
     {

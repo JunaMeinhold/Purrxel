@@ -1,13 +1,14 @@
-﻿namespace VoxelEngine.Voxel.WorldGen
+﻿namespace Purrxel.Engine.Voxel.WorldGen
 {
     using Hexa.NET.Mathematics;
+    using Purrxel.Engine.Graphics.D3D11;
+    using Purrxel.Engine.Mathematics.Noise;
+    using Purrxel.Engine.Voxel;
+    using Purrxel.Engine.Voxel.WorldGen.Biomes;
     using System;
     using System.Numerics;
-    using VoxelEngine.Graphics.D3D11;
-    using VoxelEngine.Mathematics.Noise;
     using VoxelEngine.Voxel;
-    using VoxelEngine.Voxel.WorldGen.Biomes;
-    using static VoxelEngine.Voxel.Blocks.BlockRegistry;
+    using static Purrxel.Engine.Voxel.Blocks.BlockRegistry;
 
     public struct PrefabRecord
     {

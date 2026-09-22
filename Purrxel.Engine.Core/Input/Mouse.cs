@@ -1,10 +1,10 @@
-﻿namespace VoxelEngine.Core.Input
+﻿namespace Purrxel.Engine.Core.Input
 {
+    using Hexa.NET.SDL2;
+    using Purrxel.Engine.Core.Input.Events;
     using System.Collections.Generic;
     using System.Numerics;
     using System.Runtime.CompilerServices;
-    using Hexa.NET.SDL2;
-    using VoxelEngine.Core.Input.Events;
 
     public static unsafe class Mouse
     {

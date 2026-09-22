@@ -1,15 +1,16 @@
-﻿namespace VoxelEngine.Core.Windows
+﻿using Purrxel.Engine.Core.Input;
+
+namespace Purrxel.Engine.Core.Windows
 {
     using Hexa.NET.Mathematics;
     using Hexa.NET.SDL2;
+    using Purrxel.Engine.Core;
+    using Purrxel.Engine.Core.Input.Events;
+    using Purrxel.Engine.Core.Windows.Events;
     using System;
     using System.Runtime.CompilerServices;
     using System.Text;
-    using VoxelEngine.Core;
-    using VoxelEngine.Core.Input;
-    using VoxelEngine.Core.Input.Events;
-    using VoxelEngine.Core.Windows.Events;
-    using Key = Input.Key;
+    using Key = Key;
 
     /// <summary>
     /// The main class responsible for managing SDL windows.

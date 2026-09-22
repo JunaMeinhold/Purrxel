@@ -1,8 +1,8 @@
-﻿namespace VoxelEngine.Scenes
+﻿namespace Purrxel.Engine.Scenes
 {
     using Hexa.NET.Mathematics;
-    using HexaEngine.Queries;
-    using HexaEngine.Queries.Generic;
+    using Purrxel.Engine.Queries;
+    using Purrxel.Engine.Queries.Generic;
     using System.Collections.Concurrent;
     using System.Numerics;
 

@@ -1,12 +1,13 @@
-﻿namespace VoxelEngine.Physics
+﻿namespace Purrxel.Engine.Physics
 {
     using Hexa.NET.Mathematics;
     using Hexa.NET.Utilities;
-    using HexaEngine.Queries.Generic;
+    using Purrxel.Engine.Core;
+    using Purrxel.Engine.Queries.Generic;
+    using Purrxel.Engine.Scenes;
+    using Purrxel.Engine.Voxel;
     using System.Numerics;
     using System.Runtime.Intrinsics;
-    using VoxelEngine.Core;
-    using VoxelEngine.Scenes;
     using VoxelEngine.Voxel;
 
     public unsafe class PhysicsSystem : ISceneSystem

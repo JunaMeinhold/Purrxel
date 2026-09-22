@@ -1,8 +1,9 @@
-﻿namespace VoxelEngine.Voxel.Meshing
+﻿namespace Purrxel.Engine.Voxel.Meshing
 {
+    using Purrxel.Engine.Voxel;
+    using Purrxel.Engine.Voxel.Blocks;
     using System.Numerics;
     using System.Runtime.CompilerServices;
-    using VoxelEngine.Voxel.Blocks;
 
     public enum MeshLayer : byte
     {

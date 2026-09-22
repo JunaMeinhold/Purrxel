@@ -1,15 +1,16 @@
-﻿namespace HexaEngine.Graphics.Effects.Blur
+﻿using Purrxel.Engine.Graphics.D3D11;
+
+namespace Purrxel.Graphics.Effects.Blur
 {
-    using Hexa.NET.D3D11;
     using Hexa.NET.D3DCommon;
     using Hexa.NET.DXGI;
     using Hexa.NET.Mathematics;
+    using Purrxel.Engine.Graphics;
+    using Purrxel.Engine.Graphics.Buffers;
+    using Purrxel.Engine.Graphics.D3D11;
     using System.Numerics;
     using System.Runtime.CompilerServices;
-    using VoxelEngine.Graphics;
-    using VoxelEngine.Graphics.Buffers;
-    using VoxelEngine.Graphics.D3D11;
-    using ShaderMacro = VoxelEngine.Graphics.D3D11.ShaderMacro;
+    using ShaderMacro = ShaderMacro;
 
     public enum GaussianRadius
     {

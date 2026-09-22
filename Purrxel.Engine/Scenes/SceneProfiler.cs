@@ -1,7 +1,7 @@
-﻿namespace VoxelEngine.Scenes
+﻿namespace Purrxel.Engine.Scenes
 {
+    using Purrxel.Engine.Core;
     using System.Diagnostics;
-    using VoxelEngine.Core;
 
     public class SceneProfiler
     {

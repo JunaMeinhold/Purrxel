@@ -1,7 +1,8 @@
-﻿namespace HexaEngine.Queries.Generic
+﻿namespace Purrxel.Engine.Queries.Generic
 {
+    using Purrxel.Engine.Queries;
+    using Purrxel.Engine.Scenes;
     using System.Collections;
-    using VoxelEngine.Scenes;
 
     public class ObjectTypeQuery<T> : IQuery, IReadOnlyList<T> where T : GameObject
     {

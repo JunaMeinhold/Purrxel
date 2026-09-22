@@ -1,3 +1,3 @@
-﻿namespace VoxelEngine.Resources
+﻿namespace Purrxel.Engine.Resources
 {
 }

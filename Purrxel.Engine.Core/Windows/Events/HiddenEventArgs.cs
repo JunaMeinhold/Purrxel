@@ -1,6 +1,6 @@
-﻿namespace VoxelEngine.Core.Windows.Events
+﻿namespace Purrxel.Engine.Core.Windows.Events
 {
-    using VoxelEngine.Core.Windows;
+    using Purrxel.Engine.Core.Windows;
 
     /// <summary>
     /// Event arguments for the hidden event of a window.

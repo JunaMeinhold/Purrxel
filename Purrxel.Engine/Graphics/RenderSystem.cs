@@ -1,9 +1,7 @@
-﻿namespace VoxelEngine.Graphics
+﻿namespace Purrxel.Engine.Graphics
 {
-    using Hexa.NET.D3D11;
-    using HexaEngine.Queries.Generic;
-    using HexaGen.Runtime.COM;
-    using VoxelEngine.Scenes;
+    using Purrxel.Engine.Queries.Generic;
+    using Purrxel.Engine.Scenes;
 
     public class RenderSystem : ISceneSystem
     {

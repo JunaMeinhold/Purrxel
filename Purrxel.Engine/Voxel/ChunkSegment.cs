@@ -1,11 +1,12 @@
-﻿namespace VoxelEngine.Voxel
+﻿namespace Purrxel.Engine.Voxel
 {
     using Hexa.NET.Mathematics;
     using Hexa.NET.Utilities;
+    using Purrxel.Engine.Voxel.Serialization;
     using System;
     using System.Collections;
     using System.IO;
-    using VoxelEngine.Voxel.Serialization;
+    using VoxelEngine.Voxel;
 
     public unsafe struct ChunkSegment
     {

@@ -1,9 +1,8 @@
-﻿namespace App.Graphics.Passes
+﻿namespace Purrxel.Graphics.Passes
 {
-    using App.Graphics.Graph;
-    using App.Pipelines.Deferred;
-    using VoxelEngine.Graphics;
-    using VoxelEngine.Scenes;
+    using Purrxel.Engine.Graphics;
+    using Purrxel.Engine.Scenes;
+    using Purrxel.Graphics.Graph;
 
     public class LightUpdatePass : RenderPass
     {

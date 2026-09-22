@@ -1,19 +1,19 @@
-﻿namespace App.Renderers
+﻿namespace Purrxel.Renderers
 {
     using Hexa.NET.D3D11;
     using Hexa.NET.D3DCommon;
-    using Hexa.NET.DebugDraw;
     using Hexa.NET.DXGI;
     using Hexa.NET.Mathematics;
+    using Purrxel.Engine.Graphics;
+    using Purrxel.Engine.Graphics.Buffers;
+    using Purrxel.Engine.Graphics.D3D11;
+    using Purrxel.Engine.Lights;
+    using Purrxel.Engine.Scenes;
+    using Purrxel.Engine.Voxel;
+    using Purrxel.Engine.Voxel.Blocks;
     using System;
     using System.Numerics;
-    using VoxelEngine.Graphics;
-    using VoxelEngine.Graphics.Buffers;
-    using VoxelEngine.Graphics.D3D11;
-    using VoxelEngine.Lightning;
-    using VoxelEngine.Scenes;
     using VoxelEngine.Voxel;
-    using VoxelEngine.Voxel.Blocks;
 
     public struct WorldData
     {

@@ -1,17 +1,17 @@
-﻿namespace VoxelEngine.Windows
+﻿namespace Purrxel.Engine.Windows
 {
-    using System.Diagnostics;
     using Hexa.NET.D3D11;
     using Hexa.NET.DebugDraw;
-    using VoxelEngine.Core;
-    using VoxelEngine.Core.Input;
-    using VoxelEngine.Core.Input.Events;
-    using VoxelEngine.Core.Windows;
-    using VoxelEngine.Core.Windows.Events;
-    using VoxelEngine.Debugging;
-    using VoxelEngine.Graphics.D3D11;
-    using VoxelEngine.Scenes;
-    using VoxelEngine.UI;
+    using Purrxel.Engine.Core;
+    using Purrxel.Engine.Core.Input;
+    using Purrxel.Engine.Core.Input.Events;
+    using Purrxel.Engine.Core.Windows;
+    using Purrxel.Engine.Core.Windows.Events;
+    using Purrxel.Engine.Debugging;
+    using Purrxel.Engine.Graphics.D3D11;
+    using Purrxel.Engine.Scenes;
+    using Purrxel.Engine.UI;
+    using System.Diagnostics;
 
     public class GameWindow : CoreWindow
     {

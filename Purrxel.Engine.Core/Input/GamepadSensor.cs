@@ -1,8 +1,9 @@
-﻿namespace VoxelEngine.Core.Input
+﻿namespace Purrxel.Engine.Core.Input
 {
-    using System.Numerics;
     using Hexa.NET.SDL2;
-    using VoxelEngine.Core.Input.Events;
+    using Purrxel.Engine.Core;
+    using Purrxel.Engine.Core.Input.Events;
+    using System.Numerics;
 
     public unsafe class GamepadSensor : IDisposable
     {

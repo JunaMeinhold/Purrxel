@@ -1,6 +1,6 @@
-﻿namespace VoxelEngine.Physics
+﻿namespace Purrxel.Engine.Physics
 {
-    using VoxelEngine.Scenes;
+    using Purrxel.Engine.Scenes;
 
     public interface IPhysicsComponent : IComponent
     {

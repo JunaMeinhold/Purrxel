@@ -1,8 +1,7 @@
-﻿namespace VoxelEngine.Scripting
+﻿namespace Purrxel.Engine.Scripting
 {
-    using HexaEngine.Queries;
-    using HexaEngine.Queries.Generic;
-    using VoxelEngine.Scenes;
+    using Purrxel.Engine.Queries.Generic;
+    using Purrxel.Engine.Scenes;
 
     public class ScriptSystem : ISceneSystem
     {

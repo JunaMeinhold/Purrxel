@@ -1,8 +1,5 @@
-﻿namespace VoxelEngine.Core.Input
+﻿namespace Purrxel.Engine.Core.Input
 {
-    using Hexa.NET.Mathematics;
-    using System;
-
     public static class Helper
     {
         public static Hexa.NET.SDL2.SDLKeyCode ConvertBack(Key code)

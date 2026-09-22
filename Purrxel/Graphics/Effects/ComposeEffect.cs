@@ -1,11 +1,9 @@
-﻿namespace App.Pipelines.Effects
+﻿namespace Purrxel.Graphics.Effects
 {
-    using Hexa.NET.D3D11;
-    using HexaGen.Runtime.COM;
+    using Purrxel.Engine.Graphics;
+    using Purrxel.Engine.Graphics.Buffers;
+    using Purrxel.Engine.Graphics.D3D11;
     using System.Numerics;
-    using VoxelEngine.Graphics;
-    using VoxelEngine.Graphics.Buffers;
-    using VoxelEngine.Graphics.D3D11;
 
     public class ComposeEffect : DisposableBase
     {

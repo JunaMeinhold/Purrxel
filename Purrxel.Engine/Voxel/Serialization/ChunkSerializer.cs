@@ -1,8 +1,9 @@
-﻿namespace VoxelEngine.Voxel.Serialization
+﻿namespace Purrxel.Engine.Voxel.Serialization
 {
     using Hexa.NET.Utilities;
+    using Purrxel.Engine.IO;
+    using Purrxel.Engine.Voxel;
     using System.IO;
-    using VoxelEngine.IO;
 
     /*
 Pattern for ImHex:

@@ -1,17 +1,19 @@
-﻿namespace App.Scripts
+﻿namespace Purrxel.Scripts
 {
-    using App.Objects;
     using Hexa.NET.ImGui;
     using Hexa.NET.Mathematics;
+    using Purrxel.Engine.Core;
+    using Purrxel.Engine.Core.Input;
+    using Purrxel.Engine.Core.Input.Events;
+    using Purrxel.Engine.Physics;
+    using Purrxel.Engine.Scenes;
+    using Purrxel.Engine.Scripting;
+    using Purrxel.Engine.Voxel;
+    using Purrxel.Engine.Voxel.Blocks;
+    using Purrxel.Objects;
     using System.Numerics;
     using System.Runtime.CompilerServices;
-    using VoxelEngine.Core;
-    using VoxelEngine.Core.Input;
-    using VoxelEngine.Physics;
-    using VoxelEngine.Scenes;
-    using VoxelEngine.Scripting;
     using VoxelEngine.Voxel;
-    using VoxelEngine.Voxel.Blocks;
 
     public class PlayerController : ScriptComponent
     {
@@ -47,7 +49,7 @@
 
         public bool FreeCameraMode { get => freeCameraMode; set => freeCameraMode = value; }
 
-        private void Keyboard_OnKeyUp(object? sender, VoxelEngine.Core.Input.Events.KeyboardEventArgs e)
+        private void Keyboard_OnKeyUp(object? sender, KeyboardEventArgs e)
         {
             if (e.KeyCode == Key.Escape)
             {

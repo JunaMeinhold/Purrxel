@@ -1,7 +1,7 @@
-﻿namespace App.Pipelines.Effects
+﻿namespace Purrxel.Graphics.Effects
 {
-    using VoxelEngine.Graphics;
-    using VoxelEngine.Graphics.D3D11;
+    using Purrxel.Engine.Graphics;
+    using Purrxel.Engine.Graphics.D3D11;
 
     public class FXAAEffect : DisposableBase
     {

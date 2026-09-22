@@ -1,8 +1,9 @@
-﻿namespace VoxelEngine.Graphics.Buffers
+﻿namespace Purrxel.Engine.Graphics.Buffers
 {
     using Hexa.NET.D3D11;
+    using Purrxel.Engine.Graphics;
+    using Purrxel.Engine.Graphics.D3D11;
     using System;
-    using VoxelEngine.Graphics.D3D11;
 
     public interface IStructuredBuffer : IBuffer
     {

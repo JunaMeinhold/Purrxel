@@ -18,7 +18,7 @@
 
 using System.Collections;
 
-namespace VoxelEngine.Debugging.Collections
+namespace Purrxel.Engine.Debugging.Collections
 {
     /// <summary>
     /// Ternary Search Tree Dictionary
@@ -599,17 +599,17 @@ namespace VoxelEngine.Debugging.Collections
                 }
                 else
                     if (p.Value.Key != null)
-                {
-                    var res = p.Value.Key.Length == index + 1
-                      || _comparer.Compare(p.Value.Key, key) == 0;
-                    entry = res ? p : null;
-                    return res;
-                }
-                else
-                {
-                    ++index;
-                    p = p.EqChild;
-                }
+                    {
+                        var res = p.Value.Key.Length == index + 1
+                          || _comparer.Compare(p.Value.Key, key) == 0;
+                        entry = res ? p : null;
+                        return res;
+                    }
+                    else
+                    {
+                        ++index;
+                        p = p.EqChild;
+                    }
             }
 
             entry = p;

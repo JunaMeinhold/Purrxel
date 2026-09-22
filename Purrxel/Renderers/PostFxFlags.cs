@@ -1,4 +1,4 @@
-﻿namespace App.Renderers
+﻿namespace Purrxel.Renderers
 {
     [Flags]
     public enum PostFxFlags

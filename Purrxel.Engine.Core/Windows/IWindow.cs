@@ -1,8 +1,8 @@
-﻿namespace VoxelEngine.Core.Windows
+﻿namespace Purrxel.Engine.Core.Windows
 {
     using Hexa.NET.SDL2;
-    using VoxelEngine.Core.Input.Events;
-    using VoxelEngine.Core.Windows.Events;
+    using Purrxel.Engine.Core.Input.Events;
+    using Purrxel.Engine.Core.Windows.Events;
 
     /// <summary>
     /// Represents a window.

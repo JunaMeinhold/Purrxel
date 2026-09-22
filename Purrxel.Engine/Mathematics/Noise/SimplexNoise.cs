@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.Mathematics.Noise
+﻿namespace Purrxel.Engine.Mathematics.Noise
 {
     public class SimplexNoise
     {

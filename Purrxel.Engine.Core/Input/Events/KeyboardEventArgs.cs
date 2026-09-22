@@ -1,7 +1,7 @@
-﻿namespace VoxelEngine.Core.Input.Events
+﻿namespace Purrxel.Engine.Core.Input.Events
 {
     using Hexa.NET.SDL2;
-    using VoxelEngine.Core.Input;
+    using Purrxel.Engine.Core.Input;
 
     public class KeyboardEventArgs : EventArgs
     {

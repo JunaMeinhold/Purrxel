@@ -1,6 +1,8 @@
-﻿namespace VoxelEngine.Voxel.Meshing
+﻿namespace Purrxel.Engine.Voxel.Meshing
 {
+    using Purrxel.Engine.Voxel;
     using System.Numerics;
+    using VoxelEngine.Voxel;
 
     public unsafe struct ChunkNeighbours
     {

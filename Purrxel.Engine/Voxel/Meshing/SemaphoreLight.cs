@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.Voxel.Meshing
+﻿namespace Purrxel.Engine.Voxel.Meshing
 {
     using System.Runtime.CompilerServices;
 

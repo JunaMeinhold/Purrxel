@@ -1,6 +1,6 @@
-﻿namespace VoxelEngine.Core.Windows.Events
+﻿namespace Purrxel.Engine.Core.Windows.Events
 {
-    using VoxelEngine.Core.Windows;
+    using Purrxel.Engine.Core.Windows;
 
     /// <summary>
     /// Provides event arguments for the restored event of a window.

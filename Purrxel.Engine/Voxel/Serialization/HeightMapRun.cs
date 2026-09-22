@@ -1,5 +1,6 @@
-﻿namespace VoxelEngine.Voxel.Serialization
+﻿namespace Purrxel.Engine.Voxel.Serialization
 {
+    using Purrxel.Engine.Voxel;
     using System.IO;
     using System.Runtime.InteropServices;
 

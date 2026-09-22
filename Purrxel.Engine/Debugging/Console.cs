@@ -1,5 +1,7 @@
-﻿namespace VoxelEngine.Debugging
+﻿namespace Purrxel.Engine.Debugging
 {
+    using Hexa.NET.ImGui;
+    using Purrxel.Engine.Debugging.Collections;
     using System;
     using System.Collections.Generic;
     using System.Diagnostics;
@@ -8,8 +10,6 @@
     using System.Runtime.CompilerServices;
     using System.Runtime.InteropServices;
     using System.Text;
-    using Hexa.NET.ImGui;
-    using VoxelEngine.Debugging.Collections;
 
     public struct ConsoleMessage
     {
@@ -557,12 +557,12 @@
                             else
                                 // Partially complete word.
                                 if (!string.IsNullOrEmpty(partial))
-                            {
-                                int newLen = data->BufTextLen - startSubtrPos;
-                                buffer[startSubtrPos..data->BufTextLen].Fill((char)0);
-                                partial.CopyTo(buffer[startSubtrPos..]);
-                                data->BufDirty = 1;
-                            }
+                                {
+                                    int newLen = data->BufTextLen - startSubtrPos;
+                                    buffer[startSubtrPos..data->BufTextLen].Fill((char)0);
+                                    partial.CopyTo(buffer[startSubtrPos..]);
+                                    data->BufDirty = 1;
+                                }
                         }
 
                         // We have performed the completion event.
@@ -583,10 +583,10 @@
                                 --m_HistoryIndex;
                             }
                             else
-                            if (m_HistoryIndex < history.Count)
-                            {
-                                ++m_HistoryIndex;
-                            }
+                                if (m_HistoryIndex < history.Count)
+                                {
+                                    ++m_HistoryIndex;
+                                }
                         }
 
                         // Get history.

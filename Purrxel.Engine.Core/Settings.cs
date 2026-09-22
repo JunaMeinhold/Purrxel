@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.Core
+﻿namespace Purrxel.Engine.Core
 {
     using System.Text.Json;
     using System.Text.Json.Serialization;

@@ -1,4 +1,4 @@
-﻿namespace HexaEngine.Queries
+﻿namespace Purrxel.Engine.Queries
 {
     [Flags]
     public enum QueryFlags

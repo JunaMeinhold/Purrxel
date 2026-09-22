@@ -1,6 +1,6 @@
-﻿namespace VoxelEngine.Voxel.Serialization
+﻿namespace Purrxel.Engine.Voxel.Serialization
 {
-    using VoxelEngine.IO;
+    using Purrxel.Engine.IO;
 
     public readonly struct ChunkRegionHeader
     {

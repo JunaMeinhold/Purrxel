@@ -1,11 +1,12 @@
-﻿namespace VoxelEngine.Graphics.Buffers
+﻿namespace Purrxel.Engine.Graphics.Buffers
 {
     using Hexa.NET.D3D11;
     using HexaGen.Runtime.COM;
+    using Purrxel.Engine.Core;
+    using Purrxel.Engine.Graphics;
+    using Purrxel.Engine.Graphics.D3D11;
     using System;
     using System.Runtime.CompilerServices;
-    using VoxelEngine.Core;
-    using VoxelEngine.Graphics.D3D11;
 
     /// <summary>
     /// Represents a structured buffer in graphics memory containing elements of type <typeparamref name="T"/>.

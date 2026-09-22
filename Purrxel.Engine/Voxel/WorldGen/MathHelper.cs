@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.Voxel.WorldGen
+﻿namespace Purrxel.Engine.Voxel.WorldGen
 {
     using Hexa.NET.Mathematics;
 

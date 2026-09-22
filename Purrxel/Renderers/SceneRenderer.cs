@@ -1,22 +1,21 @@
-﻿namespace App.Renderers
+﻿namespace Purrxel.Renderers
 {
-    using App.Graphics.Graph;
-    using App.Graphics.Passes;
-    using App.Pipelines.Deferred;
     using Hexa.NET.DebugDraw;
     using Hexa.NET.DXGI;
     using Hexa.NET.ImGui;
-    using Hexa.NET.ImPlot;
+    using Purrxel;
+    using Purrxel.Engine.Core;
+    using Purrxel.Engine.Core.Input;
+    using Purrxel.Engine.Core.Input.Events;
+    using Purrxel.Engine.Graphics;
+    using Purrxel.Engine.Graphics.Buffers;
+    using Purrxel.Engine.Graphics.D3D11;
+    using Purrxel.Engine.Scenes;
+    using Purrxel.Engine.Windows;
+    using Purrxel.Graphics.Graph;
+    using Purrxel.Graphics.Passes;
     using System.Numerics;
     using System.Runtime.CompilerServices;
-    using VoxelEngine.Core;
-    using VoxelEngine.Core.Input;
-    using VoxelEngine.Core.Unsafes;
-    using VoxelEngine.Graphics;
-    using VoxelEngine.Graphics.Buffers;
-    using VoxelEngine.Graphics.D3D11;
-    using VoxelEngine.Scenes;
-    using VoxelEngine.Windows;
 
     public class SceneRenderer : ISceneRenderer
     {
@@ -90,7 +89,7 @@
             perlinNoiseWidget = new();
         }
 
-        private void Keyboard_OnKeyUp(object? sender, VoxelEngine.Core.Input.Events.KeyboardEventArgs e)
+        private void Keyboard_OnKeyUp(object? sender, KeyboardEventArgs e)
         {
             if (e.KeyCode == Key.F1)
             {

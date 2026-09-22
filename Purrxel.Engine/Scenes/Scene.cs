@@ -1,19 +1,17 @@
-﻿namespace VoxelEngine.Scenes
+﻿namespace Purrxel.Engine.Scenes
 {
-    using Hexa.NET.D3D11;
-    using HexaEngine.Queries;
+    using Purrxel.Engine.Collections;
+    using Purrxel.Engine.Core;
+    using Purrxel.Engine.Graphics;
+    using Purrxel.Engine.Lights;
+    using Purrxel.Engine.Physics;
+    using Purrxel.Engine.Queries;
+    using Purrxel.Engine.Scripting;
+    using Purrxel.Engine.Voxel;
+    using Purrxel.Engine.Windows;
     using System;
     using System.Runtime.CompilerServices;
     using System.Threading;
-    using VoxelEngine.Collections;
-    using VoxelEngine.Core;
-    using VoxelEngine.Graphics;
-    using VoxelEngine.Graphics.D3D11;
-    using VoxelEngine.Lights;
-    using VoxelEngine.Physics;
-    using VoxelEngine.Scripting;
-    using VoxelEngine.Voxel;
-    using VoxelEngine.Windows;
 
     public delegate void SceneEventHandler<T>(Scene scene, T args);
 

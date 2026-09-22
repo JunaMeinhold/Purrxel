@@ -1,6 +1,7 @@
-﻿namespace VoxelEngine.Voxel.LOD
+﻿namespace Purrxel.Engine.Voxel.LOD
 {
     using Hexa.NET.Mathematics;
+    using Purrxel.Engine.Voxel;
 
     public unsafe struct HeightMapEntry
     {

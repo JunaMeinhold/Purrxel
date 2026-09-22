@@ -1,4 +1,4 @@
-﻿namespace HexaEngine.Graphics.Effects.Blur
+﻿namespace Purrxel.Graphics.Effects.Blur
 {
     public enum BlurType
     {

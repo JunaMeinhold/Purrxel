@@ -1,9 +1,10 @@
-﻿namespace VoxelEngine.Graphics.Buffers
+﻿namespace Purrxel.Engine.Graphics.Buffers
 {
     using Hexa.NET.D3D11;
     using HexaGen.Runtime.COM;
-    using VoxelEngine.Graphics.D3D11;
-    using VoxelEngine.Resources;
+    using Purrxel.Engine.Graphics;
+    using Purrxel.Engine.Graphics.D3D11;
+    using Purrxel.Engine.Resources;
 
     public unsafe class VertexBuffer<T> : Resource, IBuffer where T : unmanaged
     {

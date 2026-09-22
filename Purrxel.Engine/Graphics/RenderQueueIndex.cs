@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.Scenes
+﻿namespace Purrxel.Engine.Graphics
 {
     public enum RenderQueueIndex
     {

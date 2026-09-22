@@ -1,12 +1,11 @@
-﻿namespace App.Pipelines.Effects
+﻿namespace Purrxel.Graphics.Effects
 {
-    using App.Renderers;
     using Hexa.NET.DXGI;
     using Hexa.NET.Mathematics;
+    using Purrxel.Engine.Graphics;
+    using Purrxel.Engine.Graphics.Buffers;
+    using Purrxel.Engine.Graphics.D3D11;
     using System.Numerics;
-    using VoxelEngine.Graphics;
-    using VoxelEngine.Graphics.Buffers;
-    using VoxelEngine.Graphics.D3D11;
 
     public unsafe class Bloom : DisposableBase
     {

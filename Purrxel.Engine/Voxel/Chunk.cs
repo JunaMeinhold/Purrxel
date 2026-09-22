@@ -1,12 +1,13 @@
-namespace VoxelEngine.Voxel
+namespace Purrxel.Engine.Voxel
 {
     using Hexa.NET.Mathematics;
+    using Purrxel.Engine.Voxel.Meshing;
+    using Purrxel.Engine.Voxel.Metadata;
+    using Purrxel.Engine.Voxel.Serialization;
     using System.Diagnostics;
     using System.Numerics;
     using System.Runtime.CompilerServices;
-    using VoxelEngine.Voxel.Meshing;
-    using VoxelEngine.Voxel.Metadata;
-    using VoxelEngine.Voxel.Serialization;
+    using VoxelEngine.Voxel;
 
     [DebuggerDisplay($"{{{nameof(GetDebuggerDisplay)}(),nq}}")]
     public unsafe struct Chunk

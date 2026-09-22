@@ -1,4 +1,4 @@
-﻿namespace VoxelEngine.Graphics.D3D11
+﻿namespace Purrxel.Engine.Graphics.D3D11
 {
     /// <unmanaged>D3DCOMPILE_SHADER_FLAGS</unmanaged>
     /// <unmanaged-short>D3DCOMPILE_SHADER_FLAGS</unmanaged-short>

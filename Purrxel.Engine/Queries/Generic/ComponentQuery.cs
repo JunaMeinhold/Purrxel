@@ -1,8 +1,9 @@
-﻿namespace HexaEngine.Queries.Generic
+﻿namespace Purrxel.Engine.Queries.Generic
 {
+    using Purrxel.Engine.Queries;
+    using Purrxel.Engine.Scenes;
     using System.Collections;
     using System.Collections.Generic;
-    using VoxelEngine.Scenes;
 
     public class ComponentQuery<T> : IQuery, IReadOnlyList<T> where T : IComponent
     {

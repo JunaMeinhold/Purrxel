@@ -1,11 +1,11 @@
-﻿namespace VoxelEngine.Objects
+﻿namespace Purrxel.Engine.Objects
 {
     using Hexa.NET.D3D11;
     using HexaGen.Runtime.COM;
+    using Purrxel.Engine.Graphics.D3D11;
     using System;
     using System.Numerics;
     using System.Runtime.InteropServices;
-    using VoxelEngine.Graphics.D3D11;
 
     public unsafe class Material : IDisposable
     {

@@ -1,6 +1,6 @@
-﻿namespace VoxelEngine.Graphics
+﻿namespace Purrxel.Engine.Graphics
 {
-    using VoxelEngine.Graphics.D3D11;
+    using Purrxel.Engine.Graphics.D3D11;
 
     public interface IResource : IDeviceChild
     {

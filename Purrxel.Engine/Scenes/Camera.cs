@@ -1,10 +1,7 @@
-﻿namespace VoxelEngine.Scenes
+﻿namespace Purrxel.Engine.Scenes
 {
     using Hexa.NET.Mathematics;
     using System.Numerics;
-    using VoxelEngine.Core;
-    using VoxelEngine.Core.Windows.Events;
-    using Viewport = Hexa.NET.Mathematics.Viewport;
 
     public class Camera : GameObject
     {

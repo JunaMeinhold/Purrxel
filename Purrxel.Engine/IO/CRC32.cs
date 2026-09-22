@@ -2,7 +2,7 @@
 // You may use this program, or
 // code or tables extracted from it, as desired without restriction.
 
-namespace VoxelEngine.IO
+namespace Purrxel.Engine.IO
 {
     using System.Runtime.InteropServices;
 

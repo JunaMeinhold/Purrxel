@@ -1,7 +1,7 @@
-﻿namespace VoxelEngine.Voxel.Meshing
+﻿namespace Purrxel.Engine.Voxel.Meshing
 {
-    using VoxelEngine.Graphics;
-    using VoxelEngine.Graphics.Buffers;
+    using Purrxel.Engine.Graphics;
+    using Purrxel.Engine.Graphics.Buffers;
 
     public unsafe class VertexBufferPool<T> where T : unmanaged
     {

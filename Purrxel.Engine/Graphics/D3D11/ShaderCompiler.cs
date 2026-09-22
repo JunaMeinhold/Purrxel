@@ -1,16 +1,15 @@
-﻿namespace VoxelEngine.Graphics.D3D11
+﻿namespace Purrxel.Engine.Graphics.D3D11
 {
     using Hexa.NET.D3D11;
     using Hexa.NET.D3DCommon;
     using Hexa.NET.D3DCompiler;
     using Hexa.NET.DXGI;
     using HexaGen.Runtime.COM;
+    using Purrxel.Engine.Debugging;
+    using Purrxel.Engine.IO;
     using System.IO;
     using System.Runtime.CompilerServices;
     using System.Runtime.InteropServices;
-    using System.Text;
-    using VoxelEngine.Debugging;
-    using VoxelEngine.IO;
     using D3DShaderMacro = Hexa.NET.D3DCommon.ShaderMacro;
 
     public static unsafe class ShaderCompiler
@@ -29,7 +28,7 @@
             error = null;
             ShaderFlags flags = (ShaderFlags)(1 << 21);
 #if DEBUG && !RELEASE && !SHADER_FORCE_OPTIMIZE
-                flags |= ShaderFlags.Debug | ShaderFlags.SkipOptimization | ShaderFlags.DebugNameForSource;
+            flags |= ShaderFlags.Debug | ShaderFlags.SkipOptimization | ShaderFlags.DebugNameForSource;
 #else
             flags |= ShaderFlags.OptimizationLevel2;
 #endif

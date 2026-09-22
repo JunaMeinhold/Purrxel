@@ -21,10 +21,10 @@
 
 // Modified and ported by me.
 
-namespace VoxelEngine.UI
+namespace Purrxel.Engine.UI
 {
-    using System.Numerics;
     using Hexa.NET.ImGui;
+    using System.Numerics;
 
     public static unsafe class ImGuiWidgetFlameGraph
     {

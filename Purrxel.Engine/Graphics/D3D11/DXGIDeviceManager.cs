@@ -1,10 +1,10 @@
-﻿namespace VoxelEngine.Graphics.D3D11
+﻿namespace Purrxel.Engine.Graphics.D3D11
 {
     using Hexa.NET.D3D11;
     using Hexa.NET.DXGI;
     using HexaGen.Runtime.COM;
+    using Purrxel.Engine.Core.Windows;
     using System.Diagnostics;
-    using VoxelEngine.Core.Windows;
 
     public static unsafe class DXGIDeviceManager
     {

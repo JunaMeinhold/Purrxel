@@ -1,10 +1,10 @@
-﻿namespace VoxelEngine.Debugging
+﻿namespace Purrxel.Engine.Debugging
 {
     using Hexa.NET.Utilities;
+    using Purrxel.Engine.Core.Unsafes;
+    using Purrxel.Engine.UI;
     using System.Collections.Generic;
     using System.Diagnostics;
-    using VoxelEngine.Core.Unsafes;
-    using VoxelEngine.UI;
 
     public struct Scope
     {
