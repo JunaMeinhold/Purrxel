@@ -35,7 +35,7 @@
             }, new GraphicsPipelineStateDesc()
             {
                 Rasterizer = RasterizerDescription.CullNone,
-                DepthStencil = DepthStencilDescription.DepthRead
+                DepthStencil = DepthStencilDescription.None
             });
             sphere = new();
             Texture = new(TexturePath);

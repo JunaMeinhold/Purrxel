@@ -464,6 +464,7 @@ compile_commands.json
 
 # vcpkg
 vcpkg_installed/
+CMakeUserPresets.json
 
 # debug information files
 *.dwo

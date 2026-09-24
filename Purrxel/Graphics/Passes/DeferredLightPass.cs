@@ -45,7 +45,7 @@
                 PixelShader = "deferred/light/ps.hlsl",
             }, new()
             {
-                Blend = BlendDescription.Additive,
+                Blend = BlendDescription.AlphaBlend,
                 DepthStencil = DepthStencilDescription.None,
                 Topology = PrimitiveTopology.Trianglestrip
             });

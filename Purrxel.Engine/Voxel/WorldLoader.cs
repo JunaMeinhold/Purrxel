@@ -1,5 +1,4 @@
-﻿
-namespace Purrxel.Engine.Voxel
+﻿namespace Purrxel.Engine.Voxel
 {
     using Hexa.NET.Mathematics;
     using Hexa.NET.Utilities;
@@ -62,7 +61,7 @@ namespace Purrxel.Engine.Voxel
             public AutoResetEvent Handle;
         }
 
-        public WorldLoader(World world, int threads = 8, int ioThreads = 2)
+        public WorldLoader(World world, int threads = 16, int ioThreads = 4)
         {
             World = world;
             workers = new Worker[threads];

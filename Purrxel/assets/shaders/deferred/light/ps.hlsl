@@ -12,6 +12,8 @@ float4 main(PixelInput input) : SV_TARGET
 	GeometryAttributes attrs;
 	ExtractGeometryData(input.tex, GBufferA, GBufferB, GBufferC, GBufferD, linearClampSampler, attrs);
 	float depth = DepthTex.SampleLevel(linearClampSampler, input.tex, 0);
+    if (depth == 1)
+        return float4(0, 0, 0, 0);
 	float3 position = GetPositionRWS(input.tex, depth);
 	float3 V = normalize(-position);
 

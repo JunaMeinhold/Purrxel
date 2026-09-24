@@ -175,7 +175,7 @@
             this.world = world;
 
             textures = new([.. BlockRegistry.Textures]);
-            samplerState = new SamplerState(SamplerStateDescription.PointWrap);
+            samplerState = new SamplerState(SamplerStateDescription.AnisotropicWrap);
             blockBuffer = new(256, CpuAccessFlags.Write);
 
             geometry = GraphicsPipelineState.Create(new GraphicsPipelineDesc()
