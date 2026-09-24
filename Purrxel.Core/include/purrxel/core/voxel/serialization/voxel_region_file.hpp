@@ -28,8 +28,8 @@ namespace Purrxel::Core::Voxel::Serialization
 
         void Close(bool write);
 
-        void WriteSegment(ChunkSegmentData* segment);
-        bool ReadSegment(ChunkSegmentData* segment);
+        void WriteSegment(ChunkSegment* segment);
+        bool ReadSegment(ChunkSegment* segment);
         bool Exists(Point2 position) const;
 
     private:

@@ -56,7 +56,7 @@ namespace Purrxel::Core::Voxel::Serialization
         }
     }
 
-    bool VoxelRegion::ReadSegment(Stream* baseStream, Stream* compressedStream, ChunkSegmentData* segment, Point2 point)
+    bool VoxelRegion::ReadSegment(Stream* baseStream, Stream* compressedStream, ChunkSegment* segment, Point2 point)
     {
         int32_t index = (point.Y << 5) + point.X;
         const auto& entry = seekTable[index];
@@ -69,12 +69,12 @@ namespace Purrxel::Core::Voxel::Serialization
         return true;
     }
 
-    void VoxelRegion::WriteSegment(Stream* baseStream, Stream* compressedStream, ChunkSegmentData* segment, Point2 point)
+    void VoxelRegion::WriteSegment(Stream* baseStream, Stream* compressedStream, ChunkSegment* segment, Point2 point)
     {
         int32_t index = (point.Y << 5) + point.X;
         VoxelRegionSeekTableEntry entry = seekTable[index];
 
-        ChunkPreSerialized serializeds[ChunkSegmentData::CHUNK_SEGMENT_SIZE];
+        ChunkPreSerialized serializeds[ChunkSegment::CHUNK_SEGMENT_SIZE];
         segment->PreSerialize(serializeds);
 
         bool moved = entry.Position != -1;

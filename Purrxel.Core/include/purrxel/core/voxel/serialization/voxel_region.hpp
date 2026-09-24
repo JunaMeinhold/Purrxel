@@ -19,8 +19,8 @@ namespace Purrxel::Core::Voxel::Serialization
         void Serialize(Stream* stream);
         void Deserialize(Stream* stream);
 
-        bool ReadSegment(Stream* baseStream, Stream* compressedStream, ChunkSegmentData* segment, Point2 point);
-        void WriteSegment(Stream* baseStream, Stream* compressedStream, ChunkSegmentData* segment, Point2 point);
+        bool ReadSegment(Stream* baseStream, Stream* compressedStream, ChunkSegment* segment, Point2 point);
+        void WriteSegment(Stream* baseStream, Stream* compressedStream, ChunkSegment* segment, Point2 point);
 
         void Flush(Stream* stream);
 

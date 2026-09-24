@@ -5,7 +5,7 @@
 
 namespace Purrxel::Core::Voxel
 {
-    bool ChunkSegmentData::MissingNeighbours() const noexcept
+    bool ChunkSegment::MissingNeighbours() const noexcept
     {
         for (int32_t i = 0; i < CHUNK_SEGMENT_SIZE; i++)
         {
@@ -14,7 +14,7 @@ namespace Purrxel::Core::Voxel
         return false;
     }
 
-    void ChunkSegmentData::SetBlock(Point3 pos, Block block)
+    void ChunkSegment::SetBlock(Point3 pos, Block block)
     {
         if (pos.Y < 0 || pos.Y > 255) return;
         int32_t index = pos.Y >> 4;
@@ -69,7 +69,7 @@ namespace Purrxel::Core::Voxel
         chunk->Data[MapToIndex(Point3(pos.X, height, pos.Z))] = block;
     }
 
-    int64_t ChunkSegmentData::PreSerialize(Serialization::ChunkPreSerialized (&preSerializeds)[CHUNK_SEGMENT_SIZE])
+    int64_t ChunkSegment::PreSerialize(Serialization::ChunkPreSerialized (&preSerializeds)[CHUNK_SEGMENT_SIZE])
     {
         int64_t size = 0;
         for (int32_t i = 0; i < CHUNK_SEGMENT_SIZE; i++)
@@ -81,7 +81,7 @@ namespace Purrxel::Core::Voxel
         return size;
     }
 
-    void ChunkSegmentData::Serialize(Stream* stream, Serialization::ChunkPreSerialized (&preSerializeds)[CHUNK_SEGMENT_SIZE])
+    void ChunkSegment::Serialize(Stream* stream, Serialization::ChunkPreSerialized (&preSerializeds)[CHUNK_SEGMENT_SIZE])
     {
         for (int32_t i = 0; i < CHUNK_SEGMENT_SIZE; i++)
         {
@@ -89,7 +89,7 @@ namespace Purrxel::Core::Voxel
         }
     }
 
-    void ChunkSegmentData::LoadFromStream(Stream* stream)
+    void ChunkSegment::LoadFromStream(Stream* stream)
     {
         for (int32_t i = 0; i < CHUNK_SEGMENT_SIZE; i++)
         {

@@ -58,13 +58,13 @@ namespace Purrxel::Core::Voxel::Serialization
         regionSemaphore.release();
     }
 
-    void VoxelRegionFile::WriteSegment(ChunkSegmentData* segment)
+    void VoxelRegionFile::WriteSegment(ChunkSegment* segment)
     {
         Point2 pointInRegion(segment->Position.X & 31, segment->Position.Y & 31);
         region.WriteSegment(stream.Get(), lz4Stream.Get(), segment, pointInRegion);
     }
 
-    bool VoxelRegionFile::ReadSegment(ChunkSegmentData* segment)
+    bool VoxelRegionFile::ReadSegment(ChunkSegment* segment)
     {
         Point2 pointInRegion(segment->Position.X & 31, segment->Position.Y & 31);
         return region.ReadSegment(stream.Get(), lz4Stream.Get(), segment, pointInRegion);

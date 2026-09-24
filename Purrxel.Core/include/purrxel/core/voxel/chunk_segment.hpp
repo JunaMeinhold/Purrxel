@@ -8,15 +8,15 @@
 
 namespace Purrxel::Core::Voxel
 {
-    struct ChunkSegmentData
+    struct ChunkSegment
     {
         static constexpr int32_t CHUNK_SEGMENT_SIZE = 16;
 
         Point2 Position;
         Chunk* Chunks[CHUNK_SEGMENT_SIZE] = {};
 
-        ChunkSegmentData() = default;
-        explicit ChunkSegmentData(Point2 position) : Position(position) {}
+        ChunkSegment() = default;
+        explicit ChunkSegment(Point2 position) : Position(position) {}
 
         bool IsEmpty() const noexcept { return Chunks[0] == nullptr; }
         bool InMemory() const noexcept { return Chunks[0] != nullptr && Chunks[0]->InMemory(); }
@@ -36,15 +36,15 @@ namespace Purrxel::Core::Voxel
         void Serialize(Stream* stream, Serialization::ChunkPreSerialized (&preSerializeds)[CHUNK_SEGMENT_SIZE]);
         void LoadFromStream(Stream* stream);
 
-        friend bool operator==(const ChunkSegmentData& left, const ChunkSegmentData& right) noexcept { return left.Position == right.Position; }
-        friend bool operator!=(const ChunkSegmentData& left, const ChunkSegmentData& right) noexcept { return !(left == right); }
+        friend bool operator==(const ChunkSegment& left, const ChunkSegment& right) noexcept { return left.Position == right.Position; }
+        friend bool operator!=(const ChunkSegment& left, const ChunkSegment& right) noexcept { return !(left == right); }
     };
 }
 
 template <>
-struct std::hash<Purrxel::Core::Voxel::ChunkSegmentData>
+struct std::hash<Purrxel::Core::Voxel::ChunkSegment>
 {
-    size_t operator()(const Purrxel::Core::Voxel::ChunkSegmentData& segment) const noexcept
+    size_t operator()(const Purrxel::Core::Voxel::ChunkSegment& segment) const noexcept
     {
         return std::hash<Purrxel::Core::Point2>{}(segment.Position);
     }
